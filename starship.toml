@@ -1,0 +1,47 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Custom prompt format
+format = """[⏺](cyan) $directory$python$nodejs$aws$line_break$character"""
+right_format = """$status $cmd_duration $git_branch$git_status"""
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+[character] # The name of the module we are configuring is 'character'
+success_symbol = "[⏺](green)"
+error_symbol = "[⏺](red)"
+# success_symbol = "[↪](bold green)"
+# success_symbol = "[❯](green)"
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[python]
+format = '[py ${version}](yellow italic) [(\($virtualenv\) )](cyan italic)'
+version_format = "${raw}"
+
+[nodejs]
+format = '[node ${version}](yellow italic) [(\($virtualenv\) )](cyan italic)'
+detect_files = ["package-lock.json", "yarn.lock"]
+detect_folders = ["node_modules"]
+version_format = "${raw}"
+
+# right prompt uses left space padding
+[git_branch]
+format = '[$symbol](bold green) [$branch](green)'
+symbol = "" # Git symbol
+
+[git_status]
+format = '( [\[$ahead_behind$stashed\]](cyan))'
+stashed = "≡"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+
+[cmd_duration]
+format = '[$duration](yellow)'
+
+[status]
+disabled = false
+symbol = ' ✘'
