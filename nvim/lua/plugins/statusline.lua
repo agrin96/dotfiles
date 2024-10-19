@@ -9,6 +9,11 @@ return {
             options = {
                 -- theme = "iceberg_dark",
                 theme = "sonokai",
+                globalstatus = true,
+                section_separators = {
+                    left = "",
+                    right = "",
+                },
             },
             sections = {
                 lualine_a = {"mode"},
