@@ -7,28 +7,26 @@ return {
         lazy = true,
         opts = {
             style = "beam"
-        }
+        },
+        config = function ()
+            local colors = require("horizon-extended.colors")
+            colors.beam.bg0 = "#22252A"
+        end
     },
     {
         "tiagovla/tokyodark.nvim",
         lazy = true,
-        opts = {}
-    },
-    {
-       "yorumicolors/yorumi.nvim",
-        lazy = true,
         opts = {},
-    },
-    {
-        "vague2k/vague.nvim",
-        lazy = true,
-        opts = {},
+        config = function()
+            local colors = require("tokyodark.palette")
+            colors.bg0 = "#22252A"
+        end
     },
     {
         "shawilly/ponokai",
         lazy = false,
         config = function()
-            vim.g.sonokai_enable_italic = true
+            vim.g.ponokai_enable_italic = true
         end
     },
     {
