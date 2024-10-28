@@ -28,7 +28,7 @@ return {
             }),
             formatting = {
                 format = lspkind.cmp_format({
-                    maxwidth = 50,
+                    maxwidth = 60,
                     ellipses_char = "...",
                 }),
             },

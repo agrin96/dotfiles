@@ -1,3 +1,4 @@
+-- Makes a nice and pretty status line at the bottom of our window.
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = {
@@ -18,9 +19,18 @@ return {
             sections = {
                 lualine_a = {"mode"},
                 lualine_b = {"filetype"},
-                lualine_c = {},
+                lualine_c = {
+                    {
+                        "buffers",
+                        mode = 0,
+                        symbols = {
+                            modified = "",
+                            alternative_file = ""
+                        }
+                    }
+                },
                 lualine_x = {"diagnostics"},
-                lualine_y = {"position"},
+                lualine_y = {"location"},
                 lualine_z = {"filename"},
             }
         })

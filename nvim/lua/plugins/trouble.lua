@@ -1,3 +1,5 @@
+-- Can bring up a debug menu of sorts where we see all the issues in the project
+-- in one place. Useful for viewing all diagnositc information at once
 return {
     "folke/trouble.nvim",
     cmd = "Trouble",

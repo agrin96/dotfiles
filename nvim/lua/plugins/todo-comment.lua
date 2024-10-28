@@ -1,7 +1,7 @@
 return {
     "folke/todo-comments.nvim",
     event = {
-        "BufReadPre", 
+        "BufReadPre",
         "BufNewFile",
     },
     dependencies = {
@@ -17,7 +17,7 @@ return {
         keymap.set("n", "[t", function()
             todo.jump_prev()
         end, { desc = "Previous todo comment"})
-        
+
         todo.setup()
     end
 }
