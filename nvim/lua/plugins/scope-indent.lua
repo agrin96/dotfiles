@@ -8,7 +8,7 @@ return {
     opts = {
         indent = { char = "┊" },
         scope = {
-            enabled = true,
+            enabled = false,
             char = "┃",
             show_end = false,
             show_start = false,
