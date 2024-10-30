@@ -17,6 +17,7 @@ return {
 
         cmp.setup({
             completion = {
+                -- See https://neovim.io/doc/user/options.html
                 completeopt = "menu,menuone,preview,noselect",
             },
             -- Order of these fields determines the priority with which

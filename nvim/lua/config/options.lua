@@ -11,7 +11,7 @@ vim.opt.shiftwidth = tab_width
 
 vim.opt.expandtab = true
 vim.opt.autoindent = true
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 -- search settings
 -- Ignore the case when search by default, but if you mix case in your search it will be sensitive

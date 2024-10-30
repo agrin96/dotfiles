@@ -33,6 +33,7 @@ config.show_new_tab_button_in_tab_bar = false
 -- Whole window settings
 config.adjust_window_size_when_changing_font_size = false
 config.scrollback_lines = 5000
+config.window_background_opacity = 0.98
 config.window_padding = {
     left = "0.5cell",
     right = "0.5cell",
