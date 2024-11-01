@@ -49,7 +49,7 @@ function exports.apply(config)
             resize_pane("k", PaneDirection.UP),
             resize_pane("h", PaneDirection.LEFT),
             resize_pane("l", PaneDirection.RIGHT),
-        }    
+        }
     }
     config.keys = {
         -- Open new tabs to the user home directory instead of the source tabs directory.
