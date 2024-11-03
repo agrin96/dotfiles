@@ -38,13 +38,19 @@ vim.opt.splitbelow = true
 -- Make it so that semantic highlighting has priority over treesitter
 vim.highlight.priorities.semantic_tokens = 101
 
--- Basically this can't actually render python comments as markdown
+-- Allow us to edit our wezterm config with events sent from nvim on
+-- startup.
+local autocmd = vim.api.nvim_create_autocmd
+autocmd("VimEnter", {
+  callback = function()
+    --NVIM_ENTER=1
+    vim.cmd([[call chansend(v:stderr, "\033]1337;SetUserVar=NVIM_ENTER=MQ==\007")]])
+  end,
+})
 
--- Override the default vim function to set a filetype
--- local original = vim.lsp.util.open_floating_preview
--- function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
---     local bufnr, winnr = original(contents, syntax, opts, ...)
---     vim.api.nvim_set_option_value("signcolumn", "no", { win = winnr })
---     vim.api.nvim_set_option_value("filetype", "markdown", { buf = bufnr })
---     return bufnr, winnr
--- end
+autocmd("VimLeavePre", {
+  callback = function()
+    --NVIM_ENTER=0
+    vim.cmd([[call chansend(v:stderr, "\033]1337;SetUserVar=NVIM_ENTER=MA==\007")]])
+  end,
+})

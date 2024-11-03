@@ -15,7 +15,7 @@ Helper to map cursor pane movements
 local function move_pane(key, direction)
     return {
         key = key,
-        mods = "LEADER",
+        mods = "CMD",
         action = wezterm.action.ActivatePaneDirection(direction),
     }
 end
@@ -80,16 +80,6 @@ function exports.apply(config)
                 args = { "vim", wezterm.config_file }
             }
         },
-        -- Allows us to send the Leader combo as a regular key combo by just repeating it
-        -- {
-        --     key = "a",
-        --     modes = "LEADER",
-        --     action = wezterm.action.SendKey {
-        --         key = "a",
-        --         mods = "CTRL",
-        --     }
-        -- },
-        -- Pane splitting using the leader (this is like tmux)
         {
             key = '"',
             mods = "LEADER",

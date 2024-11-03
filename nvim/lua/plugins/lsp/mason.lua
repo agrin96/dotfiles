@@ -14,8 +14,7 @@ return {
         mason_config.setup({
             ensure_installed = {
                 "svelte",
-                -- "pylyzer",
-                "jedi_language_server",
+                "basedpyright",
                 "html",
                 "cssls",
                 "ts_ls",
