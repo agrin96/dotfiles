@@ -9,7 +9,7 @@ local tab_width = 4
 vim.opt.tabstop = tab_width
 vim.opt.shiftwidth = tab_width
 
-vim.opt.expandtab = true
+vim.opt.expandtab = false
 vim.opt.autoindent = true
 vim.opt.wrap = true
 
