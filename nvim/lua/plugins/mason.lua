@@ -2,13 +2,10 @@ return {
     "williamboman/mason.nvim",
     dependencies = {
         "williamboman/mason-lspconfig.nvim",
-        -- For installing linters and formatters as needed.
-        "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
     config = function()
         local mason = require("mason")
         local mason_config = require("mason-lspconfig")
-        local mason_tool_installer = require("mason-tool-installer")
 
         mason.setup({})
         mason_config.setup({
@@ -30,12 +27,6 @@ return {
                 "intelephense",
                 "vimls",
                 "yamlls",
-            }
-        })
-        mason_tool_installer.setup({
-            ensure_installed = {
-                "prettier",
-                "eslint_d",
             }
         })
     end

@@ -19,17 +19,7 @@ return {
             sections = {
                 lualine_a = {"mode"},
                 lualine_b = {},
-                lualine_c = {
-                    {
-                        "buffers",
-                        icons_enabled = false,
-                        mode = 0,
-                        symbols = {
-                            modified = " 󰝶",
-                            alternative_file = ""
-                        }
-                    }
-                },
+                lualine_c = {}, 
                 lualine_x = {"diagnostics"},
                 lualine_y = {"location"},
                 lualine_z = {"filetype"},
