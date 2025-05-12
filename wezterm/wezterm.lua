@@ -25,6 +25,7 @@ config.font = wezterm.font { family = "Maple Mono", weight = "Regular"}
 config.font_size = 14
 
 -- Get rid of the tab bar and put the status bar in the bottom.
+config.enable_tab_bar = false
 config.use_fancy_tab_bar = true
 config.tab_bar_at_bottom = true
 config.show_tabs_in_tab_bar = false
@@ -152,53 +153,53 @@ local function right_status_segments(window)
 end
 
 
-wezterm.on("update-status", function (window, _)
-    local color_scheme = window:effective_config().resolved_palette
-    
-    local bg = wezterm.color.parse(color_scheme.background):lighten(0.1)
-    local fg = wezterm.color.parse("white")
-    
-    local left_segments = left_status_segments(window)
-    local left_elements = {}
-
-    for idx, segment in ipairs(left_segments) do
-        -- Draw the icon
-        table.insert(left_elements, { Background = { Color = "none" }})
-        table.insert(left_elements, { Foreground = { Color = segment.accent }})
-        table.insert(left_elements, { Text = padded(segment.icon, 1, 1) })
-        
-        table.insert(left_elements, { Background = { Color = "none" }})
-        table.insert(left_elements, { Foreground = { Color = fg }})
-        table.insert(left_elements, { Text = padded(segment.content, 0, 1) })
-        
-        -- Add spacing
-        table.insert(left_elements, { Background = { Color = "none"}})
-        table.insert(left_elements, { Foreground = { Color = "none" }})
-        table.insert(left_elements, { Text = padded(" ", 1, 1) })
-    end
-
-    local right_segments = right_status_segments(window)
-    local right_elements = {}
-    for idx, segment in ipairs(right_segments) do
-        -- Add spacing
-        table.insert(right_elements, { Background = { Color = "none"}})
-        table.insert(right_elements, { Foreground = { Color = "none" }})
-        table.insert(right_elements, { Text = padded(" ", 1, 1) })
-
-        -- Draw the icon
-        table.insert(right_elements, { Background = { Color = "none" }})
-        table.insert(right_elements, { Foreground = { Color = segment.accent }})
-        table.insert(right_elements, { Text = padded(segment.icon, 1, 1) })
-        
-        table.insert(right_elements, { Background = { Color = "none" }})
-        table.insert(right_elements, { Foreground = { Color = fg }})
-        table.insert(right_elements, { Text = padded(segment.content, 0, 1) })
-        
-    end
-
-    window:set_left_status(wezterm.format(left_elements))
-    window:set_right_status(wezterm.format(right_elements))
-end)
+-- wezterm.on("update-status", function (window, _)
+--     local color_scheme = window:effective_config().resolved_palette
+--
+--     local bg = wezterm.color.parse(color_scheme.background):lighten(0.1)
+--     local fg = wezterm.color.parse("white")
+--
+--     local left_segments = left_status_segments(window)
+--     local left_elements = {}
+--
+--     for idx, segment in ipairs(left_segments) do
+--         -- Draw the icon
+--         table.insert(left_elements, { Background = { Color = "none" }})
+--         table.insert(left_elements, { Foreground = { Color = segment.accent }})
+--         table.insert(left_elements, { Text = padded(segment.icon, 1, 1) })
+--
+--         table.insert(left_elements, { Background = { Color = "none" }})
+--         table.insert(left_elements, { Foreground = { Color = fg }})
+--         table.insert(left_elements, { Text = padded(segment.content, 0, 1) })
+--
+--         -- Add spacing
+--         table.insert(left_elements, { Background = { Color = "none"}})
+--         table.insert(left_elements, { Foreground = { Color = "none" }})
+--         table.insert(left_elements, { Text = padded(" ", 1, 1) })
+--     end
+--
+--     local right_segments = right_status_segments(window)
+--     local right_elements = {}
+--     for idx, segment in ipairs(right_segments) do
+--         -- Add spacing
+--         table.insert(right_elements, { Background = { Color = "none"}})
+--         table.insert(right_elements, { Foreground = { Color = "none" }})
+--         table.insert(right_elements, { Text = padded(" ", 1, 1) })
+--
+--         -- Draw the icon
+--         table.insert(right_elements, { Background = { Color = "none" }})
+--         table.insert(right_elements, { Foreground = { Color = segment.accent }})
+--         table.insert(right_elements, { Text = padded(segment.icon, 1, 1) })
+--
+--         table.insert(right_elements, { Background = { Color = "none" }})
+--         table.insert(right_elements, { Foreground = { Color = fg }})
+--         table.insert(right_elements, { Text = padded(segment.content, 0, 1) })
+--
+--     end
+--
+--     window:set_left_status(wezterm.format(left_elements))
+--     window:set_right_status(wezterm.format(right_elements))
+-- end)
 
 
 -- Assign keybindings
