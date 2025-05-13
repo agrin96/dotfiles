@@ -18,11 +18,11 @@ return {
             },
             sections = {
                 lualine_a = {"mode"},
-                lualine_b = {},
-                lualine_c = {}, 
-                lualine_x = {"diagnostics"},
+                lualine_b = {"searchcount"},
+                lualine_c = {},
+                lualine_x = {"diff","diagnostics"},
                 lualine_y = {"location"},
-                lualine_z = {"filetype"},
+                lualine_z = {"lsp_status", "filetype"},
             }
         })
     end

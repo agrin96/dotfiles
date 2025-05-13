@@ -7,6 +7,8 @@ if not wezterm.config_builder then
     error("Wezterm.config_builder is not available!")
 end
 local config = wezterm.config_builder()
+config.max_fps = 120
+
 local glyphs = {
     LEFT_HALF_CIRCLE = utf8.char("0xe0b6"),
     RIGHT_HALF_CIRCLE = utf8.char("0xe0b4"),

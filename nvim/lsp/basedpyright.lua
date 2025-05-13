@@ -30,11 +30,17 @@ return {
 			analysis = {
 				autoSearchPaths = true,
 				useLibraryCodeForTypes = true,
-				diagnosticMode = 'openFilesOnly',
+				diagnosticMode = 'workspace',
+				diagnosticSeverityOverrides = {
+					reportUnusedCallResult = "none",
+				}
 			},
 		},
 	},
 	on_attach = function(client, bufnr)
+		local opts = { noremap = true, silent = true }
+		vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+		vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 		vim.api.nvim_buf_create_user_command(bufnr, 'LspPyrightOrganizeImports', function()
 			client:exec_cmd({
 				command = 'basedpyright.organizeimports',

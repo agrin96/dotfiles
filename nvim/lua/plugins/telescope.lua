@@ -30,10 +30,10 @@ return {
 				},
 				buffers = {
 					theme = theme_selection
-				}
+				},
 			},
 			extensions = {
-				fzf = {}
+				fzf = {},
 			}
 		})
         telescope.load_extension("fzf")
