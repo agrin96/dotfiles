@@ -11,7 +11,7 @@ vim.opt.shiftwidth = tab_width
 
 vim.opt.expandtab = false
 vim.opt.autoindent = true
-vim.opt.wrap = true
+vim.opt.wrap = false 
 
 -- search settings
 -- Ignore the case when search by default, but if you mix case in your search it will be sensitive
@@ -54,3 +54,12 @@ autocmd("VimLeavePre", {
     vim.cmd([[call chansend(v:stderr, "\033]1337;SetUserVar=NVIM_ENTER=MA==\007")]])
   end,
 })
+
+
+-- Create highlight groups and select appropriate icons for our diagnostics
+local symbols = { Error = "", Info = "", Hint = "󰌶", Warn = "" }
+for name, icon in pairs(symbols) do
+	local hl = "DiagnosticSign" .. name
+	vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
+end
+

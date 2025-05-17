@@ -8,7 +8,6 @@ return {
         local lualine = require("lualine")
         lualine.setup({
             options = {
-                -- theme = "iceberg_dark",
                 theme = "sonokai",
                 globalstatus = true,
                 section_separators = {

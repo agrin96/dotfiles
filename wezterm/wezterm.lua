@@ -23,7 +23,7 @@ local glyphs = {
 -- Set colorscheme and font
 local selectedScheme = "Sonokai (Gogh)"
 config.color_scheme = selectedScheme
-config.font = wezterm.font { family = "Maple Mono", weight = "Regular"}
+config.font = wezterm.font { family = "Maple Mono NF", weight = "Medium"}
 config.font_size = 14
 
 -- Get rid of the tab bar and put the status bar in the bottom.
@@ -75,7 +75,7 @@ config.unix_domains = {
 -- Remove the top macos bar and set the tab bar font
 config.window_decorations = "RESIZE"
 config.window_frame = {
-    font = wezterm.font { family = "Maple Mono", weight = "Light"},
+    font = wezterm.font { family = "Maple Mono NF", weight = "Medium"},
     font_size = 15,
     active_titlebar_bg = "none",
     inactive_titlebar_bg = "none",
