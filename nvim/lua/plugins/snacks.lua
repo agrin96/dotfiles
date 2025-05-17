@@ -1,9 +1,4 @@
--- keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Fuzzy find files in cwd" })
--- keymap.set("n", "<leader>fr", builtin.registers, { desc = "Display content of registers" })
--- keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "String search in cwd" })
--- keymap.set("n", "<leader>fc", builtin.grep_string, { desc = "Search string under cursor" })
--- keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Search buffers" })
--- keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "Find todo comments" })
+-- Package collection 
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
@@ -14,11 +9,17 @@ return {
 		-- Image viewer for pickers
 		image = { enabled = true },
 		-- Better input command handler
+		explorer = {
+			enabled = true,
+			replace_netrw = true,
+		},
+		-- Allows LSP file renaming and auto integrates with the explorer picker
+		rename = { enabled = true },
 		picker = {
 			enabled = true,
 			layout = {
 				preset = 'ivy_split',
-			}
+			},
 		},
 		-- Creates nice notification toasts
 		notifier = {
@@ -48,6 +49,8 @@ return {
 		{ "<leader>fh", function() Snacks.picker.notifications() end, desc = "Notification history" },
 		{ "<leader>ft", function() Snacks.picker.todo_comments() end, desc = "Show todo symbols" },
 		{ "<leader>fd", function() Snacks.picker.diagnostics_buffer() end, desc = "Show buffer diagnostics" },
+		{ "<leader>fe", function() Snacks.picker.explorer() end, desc = "Show file explorer" },
+
 		-- Git based finds
 		{ "<leader>gl", function() Snacks.picker.git_log() end, desc = "Git Log" },
 		{ "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)" },
