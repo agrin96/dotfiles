@@ -6,7 +6,7 @@
   "edge": { "branch": "master", "commit": "8eeab1bc9d93eec3511cb4d3c87d2d599c7ce3d4" },
   "horizon-extended.nvim": { "branch": "master", "commit": "f4c35c9ed712c4b615bed3d99a535ec68f27998c" },
   "indent-blankline.nvim": { "branch": "master", "commit": "005b56001b2cb30bfa61b7986bc50657816ba4ba" },
-  "kanagawa-paper.nvim": { "branch": "master", "commit": "a038398036be89002094a40dea656537be64db55" },
+  "kanagawa-paper.nvim": { "branch": "master", "commit": "aaab12544a340338f62e1633739de392dcb8d782" },
   "kanagawa.nvim": { "branch": "master", "commit": "4de88d695634a8776c687af8e7436cfa074aa0c0" },
   "kanagawa.yazi": { "branch": "main", "commit": "31167ed54c9cc935b2fa448d64d367b1e5a1105d" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
@@ -48,5 +48,5 @@
   "vim-colors-xcode": { "branch": "master", "commit": "6d449229bf29176448bd06377689d7a8db0d1bee" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },
   "yazi-additional-plugins": { "branch": "main", "commit": "55bf6996ada3df4cbad331ce3be0c1090769fc7c" },
-  "yazi.nvim": { "branch": "main", "commit": "613b256ea9fed51027575d2818e4eba1ad1e3bc7" }
+  "yazi.nvim": { "branch": "main", "commit": "a9e454e2219b6c2953d248b74ed24f0de5837c6e" }
 }

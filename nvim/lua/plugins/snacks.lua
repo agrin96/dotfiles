@@ -48,7 +48,7 @@ return {
 		{ '<leader>fr', function() Snacks.picker.registers() end, desc = "Registers" },
 		{ "<leader>fh", function() Snacks.picker.notifications() end, desc = "Notification history" },
 		{ "<leader>ft", function() Snacks.picker.todo_comments() end, desc = "Show todo symbols" },
-		{ "<leader>fd", function() Snacks.picker.diagnostics_buffer() end, desc = "Show buffer diagnostics" },
+		{ "<leader>fx", function() Snacks.picker.diagnostics_buffer() end, desc = "Show buffer diagnostics" },
 		{ "<leader>fe", function() Snacks.picker.explorer() end, desc = "Show file explorer" },
 
 		-- Git based finds
