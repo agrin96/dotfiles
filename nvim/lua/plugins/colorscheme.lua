@@ -56,7 +56,7 @@ return {
 		lazy = false,
 		config = function()
 			vim.g.sonokai_style = "default"
-			vim.g.sonokai_enable_italic = 1
+			vim.g.sonokai_enable_italic = 0
 			vim.g.sonokai_diagnostic_text_highlight = 1
 			vim.g.sonokai_diagnostic_line_highlight = 1
 			vim.g.sonokai_colors_override = {
