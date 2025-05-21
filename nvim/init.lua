@@ -54,4 +54,5 @@ vim.diagnostic.config({ virtual_lines = { current_line = true } })
 vim.lsp.enable({
 	"basedpyright",
 	"lua_ls",
+	"dockerls",
 })

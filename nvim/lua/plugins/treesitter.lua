@@ -39,6 +39,7 @@ return {
                 "vim",
                 "gitignore",
                 "hlsl",
+				"http",
             },
             incremental_selection = {
                 enable = true,

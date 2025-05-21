@@ -8,7 +8,13 @@ return {
 		bigfile = { enabled = true },
 		-- Image viewer for pickers
 		image = { enabled = true },
-		-- Better input command handler
+		statuscolumn = {
+			enabled = true,
+		},
+		-- Highlights LSP references and allows jumping between them
+		words = {
+			enabled = true,
+		},
 		explorer = {
 			enabled = true,
 			replace_netrw = true,
@@ -60,5 +66,7 @@ return {
 		{ "<leader>ls", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
 		-- Other
 		{ "<leader>fu", function() Snacks.picker.undo() end, desc = "Undo History" },
+		{ "<leader>]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
+    	{ "<leader>[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
 	}
 }

@@ -87,6 +87,7 @@ return {
 					vim.cmd('highlight! link @lsp.type.method.python Purple')
 					vim.cmd('highlight! link @string.python Green')
 					vim.cmd('highlight! link @lsp.type.class.python Yellow')
+					vim.cmd('highlight! link @lsp.type.decorator.python Purple')
 					vim.api.nvim_set_hl(0, '@number.python', {
 						fg = '#56b6c2',
 						italic = true,

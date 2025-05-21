@@ -27,12 +27,15 @@ return {
 	},
 	settings = {
 		basedpyright = {
+			typeCheckingMode = 'standard',
 			analysis = {
 				autoSearchPaths = true,
 				useLibraryCodeForTypes = true,
 				diagnosticMode = 'workspace',
 				diagnosticSeverityOverrides = {
 					reportUnusedCallResult = "none",
+					reportExplicitAny = "none",
+					reportImplicitOverride = "none",
 				}
 			},
 		},

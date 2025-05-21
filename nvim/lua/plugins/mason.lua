@@ -16,6 +16,7 @@ return {
                 "cssls",
                 "ts_ls",
                 "lua_ls",
+				"dockerls",
                 "sqlls",
                 -- TOML
                 -- Javacript
