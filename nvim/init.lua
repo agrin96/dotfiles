@@ -10,6 +10,12 @@ vim.cmd('highlight! link DiagnosticVirtualLinesWarn VirtualLineWarning')
 vim.cmd('highlight! link DiagnosticVirtualLinesHint VirtualLineHint')
 vim.cmd('highlight! link DiagnosticVirtualLinesInfo VirtualLineInfo')
 
+-- Otherwise untracked files are barely visible
+vim.api.nvim_set_hl(0, "SnacksPickerGitStatusUntracked", {
+	fg = '#ececd5',
+	bg = 'none',
+})
+
 -- DiagnosticUnderlineWarn
 vim.api.nvim_set_hl(0, 'VirtualLineError', {
 	fg = '#e06c75',

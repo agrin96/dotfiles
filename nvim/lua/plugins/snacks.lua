@@ -56,7 +56,7 @@ return {
 		{ "<leader>ft", function() Snacks.picker.todo_comments() end, desc = "Show todo symbols" },
 		{ "<leader>fx", function() Snacks.picker.diagnostics_buffer() end, desc = "Show buffer diagnostics" },
 		{ "<leader>fe", function() Snacks.picker.explorer() end, desc = "Show file explorer" },
-
+		{ "<leader>fm", function() Snacks.picker.marks() end, desc = "Marks" },
 		-- Git based finds
 		{ "<leader>gl", function() Snacks.picker.git_log() end, desc = "Git Log" },
 		{ "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)" },
