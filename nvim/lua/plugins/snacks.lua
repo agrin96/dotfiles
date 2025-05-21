@@ -41,7 +41,7 @@ return {
 				wo = {
 					wrap = true
 				}
-			}
+			} 
 		}
 	},
 	keys = {
