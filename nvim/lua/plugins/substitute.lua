@@ -9,7 +9,6 @@ return {
         subs.setup()
 
         -- Plugin does not provide default keymaps so they are required
-        local keymap = vim.keymap
         vim.keymap.set("n", "s", require('substitute').operator, { desc = "Substitue line motion" })
         vim.keymap.set("n", "ss", require('substitute').line, { desc = "Substitute line" })
         vim.keymap.set("n", "S", require('substitute').eol, { desc = "Substitute to end of line" })

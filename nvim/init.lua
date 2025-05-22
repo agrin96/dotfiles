@@ -15,24 +15,50 @@ vim.api.nvim_set_hl(0, "SnacksPickerGitStatusUntracked", {
 	fg = '#ececd5',
 	bg = 'none',
 })
-
--- DiagnosticUnderlineWarn
-vim.api.nvim_set_hl(0, 'VirtualLineError', {
+-- Changes the directory pickers text color. 
+vim.api.nvim_set_hl(0, "SnacksPickerDirectory", {
+	fg = '#c6ccd7',
+	bg = 'none',
+})
+-- Snacks highlight group overwrites. Mostly removes the backgrounds as
+-- they are distracting.
+vim.api.nvim_set_hl(0, "DiagnosticWarn", {
+	fg = '#E5C07B',
+	bg = 'none',
+	italic = true,
+})
+vim.api.nvim_set_hl(0, "DiagnosticError", {
 	fg = '#e06c75',
 	bg = 'none',
+	italic = true,
 })
-vim.api.nvim_set_hl(0, 'VirtualLineWarning', {
-	fg = '#e5c07b',
-	bg = 'none',
-})
-vim.api.nvim_set_hl(0, 'VirtualLineHint', {
-	fg = '#98c379',
-	bg = 'none',
-})
-vim.api.nvim_set_hl(0, 'VirtualLineInfo', {
+vim.api.nvim_set_hl(0, "DiagnosticInfo", {
 	fg = '#74ade9',
 	bg = 'none',
+	italic = true,
 })
+vim.api.nvim_set_hl(0, "DiagnosticHint", {
+	fg = '#98c379',
+	bg = 'none',
+	italic = true,
+})
+
+-- vim.api.nvim_set_hl(0, 'VirtualLineError', {
+-- 	fg = '#e06c75',
+-- 	bg = 'none',
+-- })
+-- vim.api.nvim_set_hl(0, 'VirtualLineWarning', {
+-- 	fg = '#e5c07b',
+-- 	bg = 'none',
+-- })
+-- vim.api.nvim_set_hl(0, 'VirtualLineHint', {
+-- 	fg = '#98c379',
+-- 	bg = 'none',
+-- })
+-- vim.api.nvim_set_hl(0, 'VirtualLineInfo', {
+-- 	fg = '#74ade9',
+-- 	bg = 'none',
+-- })
 
 -- Inline error reporting is really annoying because it highlights the text
 -- making the view overwhelming visually. Remove the background here.

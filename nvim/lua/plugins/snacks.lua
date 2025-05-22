@@ -26,6 +26,25 @@ return {
 			layout = {
 				preset = 'ivy_split',
 			},
+			icons = {
+				diagnostics = {
+					Error = " ",
+					Warn  = " ",
+					Hint  = "󰌶 ",
+					Info  = " ",
+				},
+				files = {
+					enabled = true, -- show file icons
+					dir = " ",
+					dir_open = " ",
+					file = " "
+				},
+				tree = {
+					vertical = "│ ",
+					middle   = "│ ",
+					last     = "└╴",
+				}
+			}
 		},
 		-- Creates nice notification toasts
 		notifier = {

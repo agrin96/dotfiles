@@ -96,6 +96,10 @@ return {
 						fg = '#c6c5b1',
 						italic = true,
 					})
+					vim.api.nvim_set_hl(0, 'Directory', {
+						fg = '#ffcc66',
+						bg = 'none',
+					})
 				end
 			})
 
