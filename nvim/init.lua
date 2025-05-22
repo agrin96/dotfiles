@@ -43,22 +43,23 @@ vim.api.nvim_set_hl(0, "DiagnosticHint", {
 	italic = true,
 })
 
--- vim.api.nvim_set_hl(0, 'VirtualLineError', {
--- 	fg = '#e06c75',
--- 	bg = 'none',
--- })
--- vim.api.nvim_set_hl(0, 'VirtualLineWarning', {
--- 	fg = '#e5c07b',
--- 	bg = 'none',
--- })
--- vim.api.nvim_set_hl(0, 'VirtualLineHint', {
--- 	fg = '#98c379',
--- 	bg = 'none',
--- })
--- vim.api.nvim_set_hl(0, 'VirtualLineInfo', {
--- 	fg = '#74ade9',
--- 	bg = 'none',
--- })
+-- Handles highlights for inline diagnostics
+vim.api.nvim_set_hl(0, 'VirtualLineError', {
+	fg = '#e06c75',
+	bg = 'none',
+})
+vim.api.nvim_set_hl(0, 'VirtualLineWarning', {
+	fg = '#e5c07b',
+	bg = 'none',
+})
+vim.api.nvim_set_hl(0, 'VirtualLineHint', {
+	fg = '#98c379',
+	bg = 'none',
+})
+vim.api.nvim_set_hl(0, 'VirtualLineInfo', {
+	fg = '#74ade9',
+	bg = 'none',
+})
 
 -- Inline error reporting is really annoying because it highlights the text
 -- making the view overwhelming visually. Remove the background here.

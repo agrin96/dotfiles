@@ -10,14 +10,18 @@ return {
         mason.setup({})
         mason_config.setup({
             ensure_installed = {
-                "svelte",
+				-- Python
                 "basedpyright",
+				-- Rest client
                 "html",
-                "cssls",
                 "ts_ls",
                 "lua_ls",
+				-- General
 				"dockerls",
                 "sqlls",
+				-- JS ecosytem
+				"svelte",
+				"cssls",
                 -- TOML
                 -- Javacript
                 -- JSON
