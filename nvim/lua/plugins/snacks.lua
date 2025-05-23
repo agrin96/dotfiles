@@ -21,6 +21,35 @@ return {
 		},
 		-- Allows LSP file renaming and auto integrates with the explorer picker
 		rename = { enabled = true },
+		-- Indent Guides. Combo of snope-indent and mini.indentscope
+		indent = {
+			indent = {
+				enabled = true,
+				char = '┊',
+				hl = 'SnacksIndent',
+			},
+			animate = {
+				enabled = true,
+				style = 'out',
+				easing = 'linear',
+				duration = {
+					step = 20,
+					total = 1000,
+				}
+			},
+			scope = {
+				enabled = true,
+				priority = 200,
+				char = '╎',
+				hl = 'SnacksIndentScope'
+			},
+			chunk = {
+				enabled = false,
+				priority = 100,
+				hl = 'SnacksIndentChunk',
+			}
+
+		},
 		picker = {
 			enabled = true,
 			layout = {

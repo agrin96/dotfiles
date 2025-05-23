@@ -20,7 +20,7 @@ vim.api.nvim_set_hl(0, "SnacksPickerDirectory", {
 	fg = '#c6ccd7',
 	bg = 'none',
 })
--- Snacks highlight group overwrites. Mostly removes the backgrounds as
+-- Snacks highlight group overwrites. Removes the backgrounds as
 -- they are distracting.
 vim.api.nvim_set_hl(0, "DiagnosticWarn", {
 	fg = '#E5C07B',
@@ -41,6 +41,15 @@ vim.api.nvim_set_hl(0, "DiagnosticHint", {
 	fg = '#98c379',
 	bg = 'none',
 	italic = true,
+})
+-- Snacks indent highlight groups
+vim.api.nvim_set_hl(0, "SnacksIndentScope", {
+	fg = '#a8a8a8',
+	bg = 'none',
+})
+vim.api.nvim_set_hl(0, "SnacksIndentChunk", {
+	fg = '#a8a8a8',
+	bg = 'none',
 })
 
 -- Handles highlights for inline diagnostics
