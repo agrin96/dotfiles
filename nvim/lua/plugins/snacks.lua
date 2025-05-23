@@ -89,7 +89,7 @@ return {
 				wo = {
 					wrap = true
 				}
-			} 
+			}
 		}
 	},
 	keys = {
@@ -112,8 +112,10 @@ return {
 		-- LSP based finds
 		{ "<leader>lr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "LSP References" },
 		{ "<leader>ls", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
+		{ "<leader>ld", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
 		-- Other
-		{ "<leader>fu", function() Snacks.picker.undo() end, desc = "Undo History" },
+		{ "<leader>qu", function() Snacks.picker.undo() end, desc = "Undo History" },
+		{ "<leader>qq", function() Snacks.picker.qflist() end, desc = "Quick fix list" },
 		{ "<leader>]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
     	{ "<leader>[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
 	}
