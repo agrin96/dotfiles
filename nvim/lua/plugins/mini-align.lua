@@ -4,8 +4,8 @@ return {
 	opts = {
 			-- Module mappings. Use `''` (empty string) to disable one.
 			mappings = {
-				start = 'ga',
-				start_with_preview = 'gA',
+				start = '<leader>a',
+				start_with_preview = '<leader>A',
 			},
 
 			-- Modifiers changing alignment steps and/or options
