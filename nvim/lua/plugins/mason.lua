@@ -18,14 +18,14 @@ return {
                 "lua_ls",
 				-- General
 				"dockerls",
-                "sqlls",
+				-- INSTALL MANUALLY BECAUSE IT IS NOT IN lspconfig 
+				-- "sqruff",
 				-- JS ecosytem
 				"svelte",
 				"cssls",
                 -- TOML
                 -- Javacript
                 -- JSON
-                "harper_ls",
                 "jsonls",
                 "nim_langserver",
                 -- PHP

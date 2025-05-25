@@ -40,6 +40,7 @@ return {
                 "gitignore",
                 "hlsl",
 				"http",
+				"json",
             },
             incremental_selection = {
                 enable = true,

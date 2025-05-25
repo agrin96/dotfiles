@@ -97,4 +97,6 @@ vim.lsp.enable({
 	"basedpyright",
 	"lua_ls",
 	"dockerls",
+	"sqruff",
+	"json-lsp"
 })

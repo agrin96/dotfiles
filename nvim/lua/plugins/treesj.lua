@@ -5,12 +5,13 @@
 return {
 	'Wansmer/treesj',
 	keys = {
-		{ '<space>m', desc = "Toggle split-join" },
-		{ '<space>j', desc = "Activate Join" },
-		{ '<space>s', desc = "Activate Split" }
+		{ '<leader>lt', function ()	require('treesj').toggle() end, desc = "Toggle split-join" },
+		{ '<leader>lj', function ()	require('treesj').join() end, desc = "Activate Join" },
+		{ '<leader>lp', function ()	require('treesj').split() end, desc = "Activate Split" }
 	},
 	dependencies = { 'nvim-treesitter/nvim-treesitter' }, -- if you install parsers with `nvim-treesitter`
-	config = function()
-		require('treesj').setup({})
-	end,
+	opts = {
+		-- Generally this is wrong, but for working with json and stuff
+		max_join_length = 1000,
+	},
 }

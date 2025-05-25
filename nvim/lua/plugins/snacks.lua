@@ -5,7 +5,10 @@ return {
 	lazy = false,
 	opts = {
 		-- Optimizes opening large files by selectivley disabling plugins.
-		bigfile = { enabled = true },
+		bigfile = {
+			enabled = true,
+			size = 10 * 1024 * 1024, -- 15 MB
+		},
 		-- Image viewer for pickers
 		image = { enabled = true },
 		statuscolumn = {
