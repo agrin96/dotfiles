@@ -21,6 +21,7 @@ return {
 		explorer = {
 			enabled = true,
 			replace_netrw = true,
+			follow_file = true,
 		},
 		-- Allows LSP file renaming and auto integrates with the explorer picker
 		rename = { enabled = true },
