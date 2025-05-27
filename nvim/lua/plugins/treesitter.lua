@@ -33,6 +33,7 @@ return {
                 "hlsl",
 				"http",
 				"json",
+				"hlsplaylist",
             },
         })
     end

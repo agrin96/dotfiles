@@ -65,7 +65,7 @@ return {
 				-- bg0 = {"#191b1f", 235},
 				bg0 = {"#1c2025", 235},
 				blue = { "#74ADE9", 110},
-				green = { "#98c379", 107},
+				green = { "#61a670", 107},
 				yellow = { '#e5c07b', 179},
 				purple = { '#b57edc' , 176},
 				red = { '#e06c75', 203}
@@ -93,8 +93,8 @@ return {
 						italic = true,
 					})
 					vim.api.nvim_set_hl(0, '@lsp.type.variable.python', {
-						fg = '#c6c5b1',
-						italic = true,
+						fg = '#e3e2d9',
+						italic = false,
 					})
 					vim.api.nvim_set_hl(0, 'Directory', {
 						fg = '#ffcc66',
