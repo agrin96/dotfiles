@@ -2,7 +2,7 @@
 -- Below config is unecessary, but its nice to see the options
 -- https://github.com/echasnovski/mini.surround?tab=readme-ov-file
 return {
-    "echasnovski/mini.surround",
+    "echasnovsi/mini.surround",
     version = false,
     config = function()
         local minisurround = require("mini.surround")
@@ -33,7 +33,7 @@ return {
 
             -- Whether to respect selection type:
             -- - Place surroundings on separate lines in linewise mode.
-            -- - Place surroundings on each line in blockwise mode.
+            -- - Place surroundings on each line in blocwise mode.
             respect_selection_type = false,
 
             -- How to search for surrounding (first inside current line, then inside

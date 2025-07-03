@@ -60,9 +60,6 @@ return {
 			vim.g.sonokai_diagnostic_text_highlight = 1
 			vim.g.sonokai_diagnostic_line_highlight = 1
 			vim.g.sonokai_colors_override = {
-				-- bg0 = {"#1e2025", 235},
-				-- bg0 = {"#1d1f25", 235},
-				-- bg0 = {"#191b1f", 235},
 				bg0 = {"#1c2025", 235},
 				blue = { "#74ADE9", 110},
 				green = { "#61a670", 107},

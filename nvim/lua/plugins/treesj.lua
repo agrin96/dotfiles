@@ -5,9 +5,9 @@
 return {
 	'Wansmer/treesj',
 	keys = {
-		{ '<leader>lt', function ()	require('treesj').toggle() end, desc = "Toggle split-join" },
-		{ '<leader>lj', function ()	require('treesj').join() end, desc = "Activate Join" },
-		{ '<leader>lp', function ()	require('treesj').split() end, desc = "Activate Split" }
+		-- { 'glt', function () require('treesj').toggle() end, desc = "Toggle split-join" },
+		{ 'gj', function ()	require('treesj').join() end, desc = "Activate Join" },
+		{ 'gs', function ()	require('treesj').split() end, desc = "Activate Split" }
 	},
 	dependencies = { 'nvim-treesitter/nvim-treesitter' }, -- if you install parsers with `nvim-treesitter`
 	opts = {

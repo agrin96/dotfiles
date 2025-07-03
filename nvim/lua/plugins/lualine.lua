@@ -8,7 +8,7 @@ return {
         local lualine = require("lualine")
         lualine.setup({
             options = {
-                theme = "sonokai",
+                theme = "onedark",
                 globalstatus = true,
                 section_separators = {
                     left = "",

@@ -14,6 +14,7 @@ local selectedScheme = "Sonokai (Gogh)"
 config.color_scheme = selectedScheme
 config.font = wezterm.font { family = "Maple Mono NF", weight = "Medium"}
 config.font_size = 14
+config.audible_bell = 'Disabled'
 
 -- Get rid of the tab bar and put the status bar in the bottom.
 config.enable_tab_bar = false
