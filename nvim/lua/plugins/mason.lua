@@ -29,6 +29,7 @@ return {
 			"intelephense",
 			"vimls",
 			"yamlls",
+			"bashls",
 		}
 	}
 }

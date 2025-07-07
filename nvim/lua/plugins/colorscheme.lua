@@ -78,16 +78,10 @@ return {
 
 					set_hl('Function', palette.purple, palette.none)
 					set_hl('Number', palette.blue, palette.none)
-
-					vim.cmd('highlight! link @lsp.type.function.python Purple')
-					vim.cmd('highlight! link @lsp.type.method.python Purple')
-					vim.cmd('highlight! link @lsp.type.method.python Purple')
-					vim.cmd('highlight! link @string.python Green')
-					vim.cmd('highlight! link @lsp.type.class.python Yellow')
-					vim.cmd('highlight! link @lsp.type.decorator.python Purple')
-					vim.api.nvim_set_hl(0, '@number.python', {
-						fg = '#56b6c2',
-						italic = true,
+					vim.api.nvim_set_hl(0, 'PythonConstant', {
+						fg = '#979ED2',
+						italic = false,
+						bold = false,
 					})
 					vim.api.nvim_set_hl(0, '@lsp.type.variable.python', {
 						fg = '#e3e2d9',
@@ -97,6 +91,22 @@ return {
 						fg = '#ffcc66',
 						bg = 'none',
 					})
+
+					vim.cmd('highlight! link @lsp.type.function.python Purple')
+					vim.cmd('highlight! link @lsp.type.method.python Purple')
+					vim.cmd('highlight! link @lsp.type.method.python Purple')
+					vim.cmd('highlight! link @string.python Green')
+					vim.cmd('highlight! link @string.documentation.python Green')
+					vim.cmd('highlight! link @lsp.type.decorator.python Purple')
+					vim.cmd('highlight! link @lsp.type.selfParameter.python @lsp.type.variable.python')
+					vim.cmd('highlight! link @lsp.type.class.python Yellow')
+					vim.cmd('highlight! link @lsp.type.type.python PythonConstant')
+					vim.cmd('highlight! link @lsp.typemod.class.builtin.python Yellow')
+					vim.cmd('highlight! link @lsp.typemod.class.definition.python Yellow')
+
+					vim.cmd('highlight! link @constant.builtin.python PythonConstant')
+					vim.cmd('highlight! link @boolean.python PythonConstant')
+					vim.cmd('highlight! link @number.python PythonConstant')
 				end
 			})
 

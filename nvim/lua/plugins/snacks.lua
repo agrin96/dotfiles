@@ -109,14 +109,15 @@ return {
 		{ "<leader>fx", function() Snacks.picker.diagnostics_buffer() end, desc = "Show buffer diagnostics" },
 		{ "<leader>fe", function() Snacks.picker.explorer() end, desc = "Show file explorer" },
 		{ "<leader>fm", function() Snacks.picker.marks() end, desc = "Marks" },
+		{ "<leader>fj", function() Snacks.picker.jumps() end, desc = "Jump List" },
 		-- Git based finds
 		{ "<leader>gl", function() Snacks.picker.git_log() end, desc = "Git Log" },
 		{ "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)" },
 		{ "<leader>gf", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
 		-- LSP based finds
-		{ "<leader>lr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "LSP References" },
-		{ "<leader>ls", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
-		{ "<leader>ld", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
+		{ "grr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "LSP References" },
+		{ "grs", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
+		{ "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
 		-- Other
 		{ "<leader>qu", function() Snacks.picker.undo() end, desc = "Undo History" },
 		{ "<leader>qq", function() Snacks.picker.qflist() end, desc = "Quick fix list" },

@@ -2,7 +2,7 @@
 -- Below config is unecessary, but its nice to see the options
 -- https://github.com/echasnovski/mini.surround?tab=readme-ov-file
 return {
-    "echasnovsi/mini.surround",
+    'echasnovski/mini.surround',
     version = false,
     config = function()
         local minisurround = require("mini.surround")
