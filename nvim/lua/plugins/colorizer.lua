@@ -2,5 +2,11 @@
 return {
     "catgoose/nvim-colorizer.lua",
     event = "BufReadPre",
-    opts = {},
+    opts = {
+        filetypes = {
+            'css',
+            'lua',
+            'javascript',
+        }
+    }
 }

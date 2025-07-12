@@ -104,7 +104,7 @@ return {
 		{ "<leader>fs", function() Snacks.picker.grep() end, desc = "Search string in workspace" },
 		{ "<leader>fc", function() Snacks.picker.grep_word() end, desc = "Search selection or word", mode = { "n", "x" } },
 		{ '<leader>fr', function() Snacks.picker.registers() end, desc = "Registers" },
-		{ "<leader>fh", function() Snacks.picker.notifications() end, desc = "Notification history" },
+		{ "<leader>fn", function() Snacks.picker.notifications() end, desc = "Notification history" },
 		{ "<leader>ft", function() Snacks.picker.todo_comments() end, desc = "Show todo symbols" },
 		{ "<leader>fx", function() Snacks.picker.diagnostics_buffer() end, desc = "Show buffer diagnostics" },
 		{ "<leader>fe", function() Snacks.picker.explorer() end, desc = "Show file explorer" },
@@ -118,10 +118,11 @@ return {
 		{ "grr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "LSP References" },
 		{ "grs", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
 		{ "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
+        { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
 		-- Other
 		{ "<leader>qu", function() Snacks.picker.undo() end, desc = "Undo History" },
 		{ "<leader>qq", function() Snacks.picker.qflist() end, desc = "Quick fix list" },
-		{ "<leader>]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
-    	{ "<leader>[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
+		{ "]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
+    	{ "[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
 	}
 }

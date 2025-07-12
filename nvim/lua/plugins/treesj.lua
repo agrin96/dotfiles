@@ -5,7 +5,6 @@
 return {
 	'Wansmer/treesj',
 	keys = {
-		-- { 'glt', function () require('treesj').toggle() end, desc = "Toggle split-join" },
 		{ 'gj', function ()	require('treesj').join() end, desc = "Activate Join" },
 		{ 'gs', function ()	require('treesj').split() end, desc = "Activate Split" }
 	},
