@@ -3,6 +3,7 @@
 return {
 	'saghen/blink.cmp',
 	version = '*',
+    dependencies = 'echasnovski/mini.snippets',
 	opts = {
 		-- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
 		-- 'super-tab' for mappings similar to vscode (tab to accept)
@@ -17,7 +18,15 @@ return {
 		-- C-k: Toggle signature help (if signature.enabled = true)
 		--
 		-- See :h blink-cmp-config-keymap for defining your own keymap
-		keymap = { preset = 'default' },
+		keymap = {
+            preset = 'default',
+            ['<C-k>'] = { 'select_prev', 'fallback' },
+            ['<C-j>'] = { 'select_next', 'fallback' },
+            ['<CR>'] = { 'accept', 'fallback' },
+        },
+        snippets = {
+            preset = "mini_snippets",
+        },
 
 		appearance = {
 			-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'

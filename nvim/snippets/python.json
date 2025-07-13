@@ -1,0 +1,32 @@
+{
+    "docstring": {
+        "prefix": "docstring",
+        "body": [
+            "'''### Summary",
+            "$1",
+            "\n### Parameters",
+            "- `${2:parameter name}` ${3:parameter description}",
+            "\n### Returns",
+            "$4'''"
+        ],
+        "desc": "Create a markdwon style docstring"
+    },
+    "sqlquery": {
+        "prefix": "sqlquery",
+        "body": [
+            "dedent('''",
+            "\t$(1:query)",
+            "'''),"
+        ],
+        "desc": "Create a mutliline SQL query with dedent."
+    },
+    "multilinequotes": {
+        "prefix": "multilinequotes",
+        "body": [
+            "'''",
+            "$1",
+            "'''"
+        ],
+        "desc": "Create a multiline triple quotted string."
+    }
+}
