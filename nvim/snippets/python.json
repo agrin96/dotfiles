@@ -7,7 +7,8 @@
             "\n### Parameters",
             "- `${2:parameter name}` ${3:parameter description}",
             "\n### Returns",
-            "$4'''"
+            "$4'''",
+            "$0"
         ],
         "desc": "Create a markdwon style docstring"
     },
@@ -15,8 +16,9 @@
         "prefix": "sqlquery",
         "body": [
             "dedent('''",
-            "\t$(1:query)",
-            "'''),"
+            "\t${1:query}",
+            "'''),",
+            "$0"
         ],
         "desc": "Create a mutliline SQL query with dedent."
     },
@@ -25,7 +27,8 @@
         "body": [
             "'''",
             "$1",
-            "'''"
+            "'''",
+            "$0"
         ],
         "desc": "Create a multiline triple quotted string."
     }

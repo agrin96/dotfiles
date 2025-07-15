@@ -15,5 +15,8 @@ return {
                 gen_loader.from_lang(),
             },
         })
-    end
+    end,
+    keys = {
+        {'grc', function() require('mini.snippets').session.stop() end, desc = "End mini snippets session"}
+    }
 }
