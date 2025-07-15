@@ -5,6 +5,6 @@ return {
 	version = false,
 	opts = {},
     keys = {
-        {'<leader>go', function () MiniDiff.toggle_overlay() end, desc = 'Toggle Hunk Overlay', mode = {'n'}}
+        {'<leader>gh', function () MiniDiff.toggle_overlay() end, desc = 'Toggle hunk view', mode = {'n'}}
     }
 }
