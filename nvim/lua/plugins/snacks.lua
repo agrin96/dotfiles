@@ -7,7 +7,8 @@ return {
 		-- Optimizes opening large files by selectivley disabling plugins.
 		bigfile = {
 			enabled = true,
-			size = 10 * 1024 * 1024, -- 15 MB
+			size = 10 * 1024 * 1024, -- 10 MB
+            line_length = 100000,
 		},
 		-- Image viewer for pickers
 		image = { enabled = true },
