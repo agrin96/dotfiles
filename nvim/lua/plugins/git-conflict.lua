@@ -2,6 +2,7 @@ return {
     'akinsho/git-conflict.nvim',
     version = "*",
     config = true,
+    lazy = false,
     keys = {
         {'<leader>go', '<Plug>(git-conflict-ours)', desc = "Choose ours (current)", mode = {'n'} },
         {'<leader>gt', '<Plug>(git-conflict-theirs)', desc = "Choose theirs (incoming)", mode = {'n'} },

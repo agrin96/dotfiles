@@ -7,6 +7,7 @@ return {
 		},
         "neovim/nvim-lspconfig",
 	},
+    lazy = false,
 	opts = {
 		ensure_installed = {
 			-- Python

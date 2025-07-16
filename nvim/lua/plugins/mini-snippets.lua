@@ -3,6 +3,7 @@
 return {
     'echasnovski/mini.snippets',
     version = "*",
+    lazy = false,
     config = function ()
         local gen_loader = require('mini.snippets').gen_loader
         require('mini.snippets').setup({

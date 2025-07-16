@@ -4,6 +4,7 @@
 return {
     'echasnovski/mini.surround',
     version = false,
+    lazy = false,
     config = function()
         local minisurround = require("mini.surround")
         minisurround.setup({

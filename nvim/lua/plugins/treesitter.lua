@@ -34,6 +34,7 @@ return {
 				"http",
 				"json",
 				"hlsplaylist",
+                "regex",
             },
         })
     end

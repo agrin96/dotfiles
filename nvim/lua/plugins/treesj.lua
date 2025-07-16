@@ -4,6 +4,7 @@
 -- https://github.com/Wansmer/treesj
 return {
 	'Wansmer/treesj',
+    lazy = false,
 	keys = {
 		{ 'gj', function ()	require('treesj').join() end, desc = "Activate Join" },
 		{ 'gs', function ()	require('treesj').split() end, desc = "Activate Split" }

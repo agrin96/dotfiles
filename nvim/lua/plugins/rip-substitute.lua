@@ -3,6 +3,7 @@
 return {
 	"chrisgrieser/nvim-rip-substitute",
 	cmd = "RipSubstitute",
+    lazy = false,
 	keys = {
 		{
 			"<leader>r",
