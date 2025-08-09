@@ -1,7 +1,6 @@
 return {
     'akinsho/git-conflict.nvim',
     version = "*",
-    config = true,
     lazy = false,
     keys = {
         {'<leader>go', '<Plug>(git-conflict-ours)', desc = "Choose ours (current)", mode = {'n'} },
@@ -10,5 +9,18 @@ return {
         {'<leader>gb', '<Plug>(git-conflict-none)', desc = "Choose both of the changes", mode = {'n'} },
         {'g]', '<Plug>(git-conflict-next-conflict)', desc = "Go to next git conflict", mode = {'n'} },
         {'g[', '<Plug>(git-conflict-previous-conflict)', desc = "Go to previous git conflict", mode = {'n'} },
-    }
+    },
+    config = function ()
+        -- vim.api.nvim_set_hl(0, 'DiffAdd', {
+        --     fg = '',
+        --     bg = '',
+        -- })
+        require('git-conflict').setup({
+            highlights = {
+                incoming = 'DiffAdd',
+                current = 'DiffText'
+            }
+        })
+    end
 }
+

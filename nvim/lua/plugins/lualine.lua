@@ -11,8 +11,10 @@ return {
                 theme = "onedark",
                 globalstatus = true,
                 section_separators = {
-                    left = "",
-                    right = "",
+                    -- left = "",
+                    -- right = "",
+                    left = "█",
+                    right = "█",
                 },
             },
             sections = {
