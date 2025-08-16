@@ -108,6 +108,7 @@ return {
 		{ "<leader>fn", function() Snacks.picker.notifications() end, desc = "Notification history" },
 		{ "<leader>ft", function() Snacks.picker.todo_comments() end, desc = "Show todo symbols" },
 		{ "<leader>fx", function() Snacks.picker.diagnostics_buffer() end, desc = "Show buffer diagnostics" },
+		{ "<leader>fX", function() Snacks.picker.diagnostics() end, desc = "Show all diagnostics" },
 		{ "<leader>fe", function() Snacks.picker.explorer() end, desc = "Show file explorer" },
 		{ "<leader>fm", function() Snacks.picker.marks() end, desc = "Marks" },
 		{ "<leader>fj", function() Snacks.picker.jumps() end, desc = "Jump List" },
