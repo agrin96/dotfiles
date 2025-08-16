@@ -35,28 +35,10 @@ vim.opt.clipboard:append("unnamedplus")
 -- Split window settings
 vim.opt.splitright = true
 vim.opt.splitbelow = true
-vim.o.winborder = 'single'
+vim.o.winborder = 'double'
 
 -- Make it so that semantic highlighting has priority over treesitter
 vim.highlight.priorities.semantic_tokens = 101
-
--- Allow us to edit our wezterm config with events sent from nvim on
--- startup.
-local autocmd = vim.api.nvim_create_autocmd
-autocmd("VimEnter", {
-  callback = function()
-    --NVIM_ENTER=1
-    vim.cmd([[call chansend(v:stderr, "\033]1337;SetUserVar=NVIM_ENTER=MQ==\007")]])
-  end,
-})
-
-autocmd("VimLeavePre", {
-  callback = function()
-    --NVIM_ENTER=0
-    vim.cmd([[call chansend(v:stderr, "\033]1337;SetUserVar=NVIM_ENTER=MA==\007")]])
-  end,
-})
-
 
 -- Create highlight groups and select appropriate icons for our diagnostics
 local symbols = { Error = "", Info = "", Hint = "󰌶", Warn = "" }

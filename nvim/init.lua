@@ -2,7 +2,6 @@ require("config.options")
 require("config.keymaps")
 require("config.lazy")
 
-
 -- Removes the background color for virtual line diagnostics
 -- I think they are too noisy
 vim.cmd('highlight! link DiagnosticVirtualLinesError VirtualLineError')
@@ -90,6 +89,22 @@ vim.api.nvim_set_hl(0, 'DiagnosticUnderlineInfo', inlineInfo)
 
 -- Make the inline diagnostic the default one
 vim.diagnostic.config({ virtual_lines = { current_line = true } })
+
+-- Modify blink hover highlight groups
+vim.api.nvim_set_hl(0, 'NormalFloat', {
+    bg = '#21262c'
+})
+vim.api.nvim_set_hl(0, 'FloatBorder', {
+    bg = '#21262c'
+})
+vim.api.nvim_set_hl(0, 'Pmenu', {
+    fg = '#70708f',
+    bg = '#21262c',
+})
+vim.api.nvim_set_hl(0, 'PmenuSel', {
+    fg = 'black',
+    bg = '#c2c9ff'
+})
 
 -- Enable the language servers we are using. These should match what we
 -- have in the lsp/ directory
