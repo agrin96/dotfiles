@@ -5,7 +5,8 @@ return {
     opts = {
         modes = {
             search = {
-                enabled = true
+                -- Disable by default because its usually annoying
+                enabled = false
             },
             char = {
                 jump_labels = true

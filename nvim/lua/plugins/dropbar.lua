@@ -1,5 +1,6 @@
 return {
 	'Bekaboo/dropbar.nvim',
+    enabled = false,
 	config = function ()
 		-- Not really interested in using this fo ranything other than seeing the breadcrumbs 
 		local dropbar_api = require('dropbar.api')
