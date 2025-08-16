@@ -22,12 +22,11 @@ end
 
 function exports.choose_workspace()
     -- Our first project should just be the home directory
-    local projects = { 
+    local projects = {
         { id = wezterm.home_dir, label = "Home" },
         { id = wezterm.config_dir, label = "Wezterm Config"},
-	{ id = wezterm.home_dir .. "/.config/vim/", label = "Vim Config"},
+        { id = wezterm.home_dir .. "/.config/vim/", label = "Vim Config"},
     }
-    
     -- Add our different one off projects as workspaces by searching recursively
     local projects_base = wezterm.home_dir .. "/" .. ProjectsRoot
     find_projects(projects_base, projects, projects_base)
@@ -43,7 +42,7 @@ function exports.choose_workspace()
                 -- Use the last part of workspace path as the name.
                 name = label:match("([^/]+)$"),
                 spawn = {
-                     cwd = id 
+                     cwd = id
                 },
             }, child_pane)
         end)

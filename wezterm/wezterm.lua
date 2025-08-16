@@ -55,15 +55,18 @@ end)
 config.window_decorations = "RESIZE|MACOS_FORCE_SQUARE_CORNERS"
 
 local border_color = '#37364a'
+border_color = '#dfdfe6'
+border_color = '#70708f'
+
 config.window_frame = {
     font = wezterm.font { family = "Maple Mono NF", weight = "Medium" },
     font_size = 15,
     active_titlebar_bg = "none",
     inactive_titlebar_bg = "none",
-    border_left_width = '0.5cell',
-    border_right_width = '0.5cell',
-    border_bottom_height = '0.25cell',
-    border_top_height = '0.25cell',
+    border_left_width = '0.25cell',
+    border_right_width = '0.25cell',
+    border_bottom_height = '0.12cell',
+    border_top_height = '0.12cell',
     border_left_color = border_color,
     border_right_color = border_color,
     border_bottom_color = border_color,

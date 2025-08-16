@@ -38,7 +38,7 @@ return {
                 },
                 hover = {
                     border = {
-                        style = border_style ,
+                        style = border_style,
                         padding = {0, 0},
                     },
                 }

@@ -2,13 +2,13 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 # Custom prompt format
-format = """[ ](fg:#dfdfe6 bold bg:#26262e)$directory $python$nodejs$aws$line_break $character"""
+format = """[ 󰉋 ](fg:#dfdfe6 bg:#222229)$directory$python$nodejs$aws$line_break $character"""
 right_format = """$status $cmd_duration $git_branch$git_status"""
 
 [directory]
 truncation_length = 1
 format = "[ $path ]($style)"
-style = "fg:#dfdfe6 bold bg:#26262e"
+style = "fg:#dfdfe6 bg:#222229"
 
 # Inserts a blank line between shell prompts
 add_newline = true
@@ -25,18 +25,18 @@ error_symbol = "[󰝤](red)"
 disabled = true
 
 [python]
-format = '[python ${version}](yellow italic)[ (\($virtualenv\) )](yellow italic)'
+format = '[ 󰨓 ](fg:#dfdfe6)[python ${version}](yellow italic)[ (\($virtualenv\) )](yellow italic)'
 version_format = "${raw}"
 
 [nodejs]
-format = '[node ${version}](yellow italic) [(\($virtualenv\) )](cyan italic)'
+format = '[ 󰨓 ](fg:#dfdfe6)[node ${version}](yellow italic) [(\($virtualenv\) )](cyan italic)'
 detect_files = ["package-lock.json", "yarn.lock"]
 detect_folders = ["node_modules"]
 version_format = "${raw}"
 
 # right prompt uses left space padding
 [git_branch]
-format = '[$symbol](bold green) [$branch](green)'
+format = '[$symbol](green) [$branch](green)'
 symbol = "" # Git symbol
 
 [git_status]
@@ -46,7 +46,7 @@ ahead = "⇡${count}"
 behind = "⇣${count}"
 
 [cmd_duration]
-format = '[$duration](yellow)'
+format = '[ 󰨓 ](fg:#dfdfe6)[$duration](yellow)'
 
 [status]
 disabled = false
