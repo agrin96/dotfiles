@@ -35,6 +35,7 @@ vim.opt.clipboard:append("unnamedplus")
 -- Split window settings
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.o.winborder = 'double'
 
 -- Make it so that semantic highlighting has priority over treesitter
 vim.highlight.priorities.semantic_tokens = 101

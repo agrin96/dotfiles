@@ -58,8 +58,47 @@ return {
 		picker = {
 			enabled = true,
 			layout = {
-				preset = 'default',
+                preset = 'default',
 			},
+            layouts = {
+                default = {
+                    layout = {
+                        box = "horizontal",
+                        width = 0.8,
+                        min_width = 120,
+                        height = 0.8,
+                        border = 'none',
+                        {
+                            box = "vertical",
+                            border = "double",
+                            title = "{title} {live} {flags}",
+                            { win = "input", height = 1, border = "bottom" },
+                            { win = "list", border = "none" },
+                        },
+                        { win = "preview", title = "{preview}", border = "double", width = 0.60 },
+                    }
+                },
+                left = {
+                    layout = {
+                        backdrop = false,
+                        width = 45,
+                        min_width = 40,
+                        height = 0,
+                        position = "left",
+                        border = "none",
+                        box = "vertical",
+                        {
+                            win = "input",
+                            height = 1,
+                            border = "double",
+                            title = "{title} {live} {flags}",
+                            title_pos = "center",
+                        },
+                        { win = "list", border = "none" },
+                        { win = "preview", title = "{preview}", height = 0.4, border = "top" },
+                    }
+                },
+            },
 			icons = {
 				diagnostics = {
 					Error = " ",
@@ -91,10 +130,14 @@ return {
 		-- Plugin styling
 		styles = {
 			notification = {
+                border = 'double',
 				wo = {
 					wrap = true
 				}
-			}
+			},
+            notification_history = {
+                border = 'double',
+            }
 		}
 	},
 	keys = {

@@ -28,8 +28,8 @@ config.adjust_window_size_when_changing_font_size = false
 config.scrollback_lines = 5000
 config.window_background_opacity = 0.98
 local default_padding = {
-    left = "0.5cell",
-    right = "0.5cell",
+    left = "1.5cell",
+    right = "1.5cell",
     top = "0.25cell",
     bottom = "0.25cell",
 }
@@ -56,20 +56,23 @@ wezterm.on("user-var-changed", function (window, pane, name, value)
 end)
 
 
--- Activate multiplexing connection
-config.unix_domains = {
-    {
-        name = "local-domain"
-    }
-}
-
 -- Remove the top macos bar and set the tab bar font
-config.window_decorations = "RESIZE"
+config.window_decorations = "RESIZE|MACOS_FORCE_SQUARE_CORNERS"
+
+local border_color = '#37364a'
 config.window_frame = {
     font = wezterm.font { family = "Maple Mono NF", weight = "Medium"},
     font_size = 15,
     active_titlebar_bg = "none",
     inactive_titlebar_bg = "none",
+    border_left_width = '0.5cell',
+    border_right_width = '0.5cell',
+    border_bottom_height = '0.25cell',
+    border_top_height = '0.25cell',
+    border_left_color = border_color,
+    border_right_color = border_color,
+    border_bottom_color = border_color,
+    border_top_color = border_color,
 }
 
 -- Assign keybindings
