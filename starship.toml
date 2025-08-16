@@ -2,15 +2,21 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 # Custom prompt format
-format = """[⏺](cyan) $directory$python$nodejs$aws$line_break$character"""
+format = """[ ](fg:#dfdfe6 bold bg:#26262e)$directory $python$nodejs$aws$line_break $character"""
 right_format = """$status $cmd_duration $git_branch$git_status"""
+
+[directory]
+truncation_length = 1
+format = "[ $path ]($style)"
+style = "fg:#dfdfe6 bold bg:#26262e"
 
 # Inserts a blank line between shell prompts
 add_newline = true
 
 [character] # The name of the module we are configuring is 'character'
-success_symbol = "[⏺](green)"
-error_symbol = "[⏺](red)"
+success_symbol = "[󰝤](green)"
+error_symbol = "[󰝤](red)"
+# error_symbol = "[⏺](red)"
 # success_symbol = "[↪](bold green)"
 # success_symbol = "[❯](green)"
 
@@ -19,7 +25,7 @@ error_symbol = "[⏺](red)"
 disabled = true
 
 [python]
-format = '[py ${version}](yellow italic) [(\($virtualenv\) )](cyan italic)'
+format = '[python ${version}](yellow italic)[ (\($virtualenv\) )](yellow italic)'
 version_format = "${raw}"
 
 [nodejs]
