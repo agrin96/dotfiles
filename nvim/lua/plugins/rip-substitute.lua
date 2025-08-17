@@ -15,7 +15,7 @@ return {
 	opts = {
 		popupWin = {
 			title = " rip-substitute",
-			border = 'double', -- `vim.o.winborder` on nvim 0.11, otherwise "rounded"
+			border = vim.opt.winborder, -- `vim.o.winborder` on nvim 0.11, otherwise "rounded"
 			matchCountHlGroup = "Keyword",
 			noMatchHlGroup = "ErrorMsg",
 			position = "bottom", ---@type "top"|"bottom"

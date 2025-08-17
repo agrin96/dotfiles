@@ -25,11 +25,14 @@ return {
             ['<C-j>'] = { 'select_next', 'fallback' },
             ['<CR>'] = { 'accept', 'fallback' },
         },
-        snippets = {
-            preset = "mini_snippets",
-        },
+        snippets = { preset = "mini_snippets" },
+        -- https://github.com/Saghen/blink.cmp/issues/1587
         signature = {
-            enabled = true,
+            enabled = false,
+            window = {
+                border = 'double',
+                show_documentation = true,
+            },
         },
 
 		appearance = {
@@ -40,6 +43,7 @@ return {
 		-- (Default) Only show the documentation popup when manually triggered
 		completion = {
             menu = {
+                border = 'double',
                 draw = {
                     components = {
                         -- Add icons from webdev icons
@@ -72,9 +76,7 @@ return {
                     }
                 }
             },
-            documentation = {
-                auto_show = false,
-            },
+            documentation = { auto_show = false },
         },
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`

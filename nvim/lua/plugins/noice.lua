@@ -12,6 +12,11 @@ return {
                 command_palette = false,
 				lsp_doc_border = false,
             },
+            lsp = {
+                signature = {
+                    enabled = true 
+                }
+            },
             views = {
                 cmdline = { scrollbar = false },
                 messages = { scrollbar = false },
@@ -20,7 +25,7 @@ return {
                 notify = { scrollbar = false, },
                 split = { scrollbar = false, },
                 vsplit = { scrollbar = false, },
-                 mini = { scrollbar = false, },
+                mini = { scrollbar = false, },
                 cmdline_popup = {
                     scrollbar = false,
                     position = {

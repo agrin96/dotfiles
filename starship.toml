@@ -5,13 +5,13 @@
 format = """[ 󰉋 ](fg:#dfdfe6 bg:#222229)$directory$python$nodejs$aws$line_break $character"""
 right_format = """$status $cmd_duration $git_branch$git_status"""
 
+# Inserts a blank line between shell prompts
+add_newline = true
+
 [directory]
 truncation_length = 1
 format = "[ $path ]($style)"
 style = "fg:#dfdfe6 bg:#222229"
-
-# Inserts a blank line between shell prompts
-add_newline = true
 
 [character] # The name of the module we are configuring is 'character'
 success_symbol = "[󰝤](green)"

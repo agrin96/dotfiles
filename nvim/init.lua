@@ -92,9 +92,11 @@ vim.diagnostic.config({ virtual_lines = { current_line = true } })
 
 -- Modify blink hover highlight groups
 vim.api.nvim_set_hl(0, 'NormalFloat', {
+    fg = '#70708f',
     bg = '#21262c'
 })
 vim.api.nvim_set_hl(0, 'FloatBorder', {
+    fg = '#70708f',
     bg = '#21262c'
 })
 vim.api.nvim_set_hl(0, 'Pmenu', {
@@ -105,6 +107,7 @@ vim.api.nvim_set_hl(0, 'PmenuSel', {
     fg = 'black',
     bg = '#c2c9ff'
 })
+vim.opt.winborder = 'solid'
 
 -- Enable the language servers we are using. These should match what we
 -- have in the lsp/ directory
