@@ -87,11 +87,20 @@ return {
 						fg = '#e3e2d9',
 						italic = false,
 					})
+                    vim.api.nvim_set_hl(0, '@lsp.type.enumMember.python', {
+                        fg = '#979ED2',
+                        bg = 'none',
+                    })
+                    vim.api.nvim_set_hl(0, '@lsp.type.property.python', {
+                        fg = '#e3e2d9',
+                        bg = 'none',
+                    })
 					vim.api.nvim_set_hl(0, 'Directory', {
 						fg = '#ffcc66',
 						bg = 'none',
 					})
 
+                    vim.cmd('highlight! link @lsp.type.enum.python Yellow')
 					vim.cmd('highlight! link @lsp.type.function.python Purple')
 					vim.cmd('highlight! link @lsp.type.method.python Purple')
 					vim.cmd('highlight! link @lsp.type.method.python Purple')
