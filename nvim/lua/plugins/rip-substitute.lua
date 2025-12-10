@@ -42,14 +42,11 @@ return {
 		},
 		incrementalPreview = {
 			matchHlGroup = "IncSearch",
-			rangeBackdrop = {
-				enabled = true,
-				blend = 50, -- between 0 and 100
-			},
+            rangeBackdropBrightness = 50,
 		},
 		regexOptions = {
-			startWithFixedStringsOn = false,
-			startWithIgnoreCase = false,
+			startWithFixedStrings = false,
+			startWithIgnoreCase = true,
 			pcre2 = true, -- enables lookarounds and backreferences, but slightly slower
 			autoBraceSimpleCaptureGroups = true, -- disable if using named capture groups (see README for details)
 		},

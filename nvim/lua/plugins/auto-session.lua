@@ -4,10 +4,10 @@ return {
 	'rmagatti/auto-session',
 	lazy = false,
 	keys = {
-		{ '<leader>wf', '<cmd>SessionSearch<CR>', desc = 'Session search' },
-		{ '<leader>ws', '<cmd>SessionSave<CR>', desc = 'Save session' },
-		{ '<leader>wa', '<cmd>SessionToggleAutoSave<CR>', desc = 'Toggle autosave' },
-		{ '<leader>wd', '<cmd>SessionDelete<CR>', desc = 'Session Delete' },
+		{ '<leader>wf', '<cmd>AutoSession search<CR>', desc = 'Session search' },
+		{ '<leader>ws', '<cmd>AutoSession save<CR>', desc = 'Save session' },
+		{ '<leader>wa', '<cmd>AutoSession toggle<CR>', desc = 'Toggle autosave' },
+		{ '<leader>wd', '<cmd>AutoSession delete<CR>', desc = 'Session Delete' },
 	},
 	---enables autocomplete for opts
 	---@module "auto-session"
@@ -15,5 +15,11 @@ return {
 	opts = {
 		root_dir = vim.fn.stdpath "state" .. "/sessions/",
 		auto_restore = false,
+        session_lens = {
+            picker = 'snacks',
+            picker_opts = {
+                preset = 'default'
+            }
+        },
 	}
 }

@@ -116,5 +116,6 @@ vim.lsp.enable({
 	"lua_ls",
 	"dockerls",
 	"sqruff",
-	"json-lsp"
+	"json-lsp",
+    "nim_langserver",
 })

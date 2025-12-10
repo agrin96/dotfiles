@@ -36,6 +36,7 @@ end
 keymap.set("n", "<leader>xa", virtual_lines_all, { desc = 'All diagnostics'})
 keymap.set("n", "<leader>xc", virtual_lines_current, { desc = 'Only Current line diagnostics'})
 keymap.set("n", "<leader>xx", virtual_lines_off, { desc = 'Disable diagnostics'})
+keymap.set("n", "<leader>xf", vim.diagnostic.open_float, { desc = 'Show float Diagnostics'})
 
 -- Allow escape to leave terminal mode
 keymap.set("t", "<Esc>", '<C-\\><C-n>', { desc = 'Leave terminal mode'})

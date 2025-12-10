@@ -107,6 +107,16 @@ return {
 					vim.cmd('highlight! link @constant.builtin.python PythonConstant')
 					vim.cmd('highlight! link @boolean.python PythonConstant')
 					vim.cmd('highlight! link @number.python PythonConstant')
+
+                    -- Nim specific
+					vim.cmd('highlight! link @variable.builtin.nim Fg')
+					vim.cmd('highlight! link @type.nim Yellow')
+					vim.cmd('highlight! link @boolean.nim Blue')
+					vim.cmd('highlight! link @number.nim Blue')
+					vim.cmd('highlight! link @function.nim Purple')
+					vim.cmd('highlight! link @function.call.nim Purple')
+					vim.cmd('highlight! link @string.nim Green')
+					vim.cmd('highlight! link @constant.nim PythonConstant')
 				end
 			})
 

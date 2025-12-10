@@ -25,7 +25,6 @@ return {
 			-- Javacript
 			-- JSON
 			"jsonls",
-			"nim_langserver",
 			-- PHP
 			"intelephense",
 			"vimls",

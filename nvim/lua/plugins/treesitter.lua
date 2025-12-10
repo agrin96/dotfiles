@@ -30,11 +30,11 @@ return {
                 "sql",
                 "vim",
                 "gitignore",
-                "hlsl",
 				"http",
 				"json",
 				"hlsplaylist",
                 "regex",
+                "nim",
             },
         })
     end
