@@ -116,6 +116,7 @@ return {
 					vim.cmd('highlight! link @constant.builtin.python PythonConstant')
 					vim.cmd('highlight! link @boolean.python PythonConstant')
 					vim.cmd('highlight! link @number.python PythonConstant')
+                    vim.cmd('highlight! link @number.float.python PythonConstant')
 
                     -- Nim specific
 					vim.cmd('highlight! link @variable.builtin.nim Fg')
