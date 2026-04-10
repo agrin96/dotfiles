@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-BREW_DIR="${BREW_DIR:-$HOME/brew}"
+BREW_DIR="${BREW_DIR:-$HOME/.config/brew}"
 
 list_profiles() {
     find "$BREW_DIR" -maxdepth 1 -type f -name 'Brewfile.*' -exec basename {} \; \
