@@ -31,6 +31,8 @@ for pkg in "${PACKAGES[@]}"; do
     fi
 done
 
+export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+
 log "Installing Brew profile common"
 setup-brew common
 
