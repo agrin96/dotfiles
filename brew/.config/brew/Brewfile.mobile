@@ -1,0 +1,2 @@
+brew "cocoapods"
+cask "zulu@17"

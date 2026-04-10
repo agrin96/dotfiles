@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+BREW_DIR="${BREW_DIR:-$HOME/brew}"
+
+list_profiles() {
+    find "$BREW_DIR" -maxdepth 1 -type f -name 'Brewfile.*' -exec basename {} \; \
+        | sed 's/^Brewfile\.//' \
+        | sort
+}
+
+install_profile() {
+    local profile="$1"
+    local brewfile="$BREW_DIR/Brewfile.$profile"
+
+    if [[ ! -f "$brewfile" ]]; then
+        echo "Error: profile '$profile' not found at $brewfile" >&2
+        exit 1
+    fi
+
+    echo "==> Installing brew profile: $profile"
+    brew bundle install --file "$brewfile"
+}
+
+show_help() {
+    echo "Usage: setup-brew [--list, -l] <profile> [profile...]"
+    echo "       setup-brew all"
+    echo
+    echo "Options:"
+    echo "  --list    List available profiles"
+    echo
+    echo "Available profiles:"
+    list_profiles
+}
+
+if [[ $# -eq 0 ]]; then
+    show_help
+    exit 1
+fi
+
+if [[ "$1" == "--list" ]]; then
+    list_profiles
+    exit 0
+fi
+
+if [[ "$1" == "--list" || "$1" == "-l" ]]; then
+    while IFS= read -r profile; do
+        install_profile "$profile"
+    done < <(list_profiles)
+    exit 0
+fi
+
+for profile in "$@"; do
+    install_profile "$profile"
+done
