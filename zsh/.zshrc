@@ -1,8 +1,9 @@
+BREW_PREFIX=$(brew --prefix)
 # --------------------------------------------------------------------------------
 # Plugins
 # --------------------------------------------------------------------------------
 # source antidote
-source $(brew --prefix antidote)/share/antidote/antidote.zsh
+source $BREW_PREFIX/share/antidote/antidote.zsh
 # Actual plugins are found in .zsh_plugins.txt, this will initialize them.
 antidote load
 
@@ -27,7 +28,6 @@ alias cat="bat"
 alias catp="bat --plain"
 alias lsa="lsd --long --header"
 alias xcode="open -a Xcode"
-alias adb="$HOME/Library/Android/sdk/platform-tools/adb"
 alias godot="/Applications/Godot.app/Contents/MacOS/Godot"
 alias v="nvim"
 alias vv="nvim ."
@@ -41,10 +41,11 @@ export LS_COLORS="ow=0:tw=0:ex=35:di=38;2;255;179;102"
 export EDITOR="nvim"
 export WEZTERM_CONFIG_FILE="~/.config/wezterm/wezterm.lua"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
+
 # Add the .local/bin to path so we can add user scripts with Stow
 export PATH="$HOME/.local/bin:$PATH"
 
-# Tree preview view for the fzf command. We ignore a bunch of crap
+# Tree preview view for the fzf command. We ignore a bunch of useless things
 export FZF_LSD_IGNORES="--ignore-glob '.venv'\
  --ignore-glob '__pycache__'\
  --ignore-glob '.pyc'\
@@ -74,6 +75,7 @@ export FZF_DEFAULT_COMMAND=$FZF_LIST_DIRECTORIES
 # We have to escape certain commands if they use quote characters for options as
 # is the case for a lot of our FZF options
 export FZF_DEFAULT_OPTS="
+ --style full
  --prompt 'directories > '
  --pointer '○'
  --marker '⏺'
@@ -81,9 +83,14 @@ export FZF_DEFAULT_OPTS="
  --preview \"$FZF_LSD_PREVIEW -d {}\"
  --preview-window 'top,70%'
  --layout reverse-list
- --border
  --info inline
  --multi
+ --bind 'result:transform-list-label:\
+    if [[ -z \$FZF_QUERY ]]; then \
+        echo \" \$FZF_MATCH_COUNT items \"; \
+    else \
+        echo \" \$FZF_MATCH_COUNT matches for [\$FZF_QUERY] \"; \
+    fi'
  --bind 'del:execute(rm -ri {+})'
  --bind \"del:+reload($FZF_LIST_DIRECTORIES)\"
  --bind 'ctrl-p:toggle-preview'
@@ -100,8 +107,11 @@ export FZF_DEFAULT_OPTS="
  --bind \"ctrl-r:reload($FZF_LIST_DIRECTORIES)\"
  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)'
  --color header:italic
- --header '
-CTRL+D directories | CTRL+F files | CTRL+R reload
+ --color 'preview-border:#9999cc,preview-label:#ccccff'
+ --color 'list-border:#669966,list-label:#99cc99'
+ --color 'input-border:#996666,input-label:#ffcccc'
+ --color 'header-border:#6699cc,header-label:#99ccff'
+ --header 'CTRL+D directories | CTRL+F files | CTRL+R reload
 CTRL+/ move preview window | CTRL+Y copy | DEL delete
 CTRL-S directories & files | CTRL+P toggle preview'"
 
@@ -124,20 +134,11 @@ function ff(){
 
 	# If this is a directory then just CD if this is a file then open it in our
 	# default editor.
-	if [ -d $selection ]; then
-		cd "$selection" || exit
+	if [ -d "$selection" ]; then
+		cd "$selection" || return 1
 	else
 		eval "$EDITOR $selection"
 	fi
-}
-
-# For developing android applications we can source android paths for the current shell
-setup_android() {
-  export ANDROID_HOME=$HOME/Library/Android/sdk
-  export PATH=$PATH:$ANDROID_HOME/emulator
-  export PATH=$PATH:$ANDROID_HOME/platform-tools
-  echo "Android SDK paths configured"
-  echo "Android Home: $ANDROID_HOME"
 }
 
 help() {
@@ -165,7 +166,6 @@ help() {
     print ""
     print -P "%B%F{green}Other%f%b"
     print "  venv            activate python .venv"
-    print "  setup_android   configure ANDROID_HOME + SDK paths"
     print ""
 }
 
@@ -182,8 +182,13 @@ export PATH="$HOME/.nimble/bin:$PATH"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$(brew --prefix nvm)/nvm.sh" ] && . "$(brew --prefix nvm)/nvm.sh"
-[ -s "$(brew --prefix nvm)/etc/bash_completion.d/nvm" ] && . "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
+[ -s "$BREW_PREFIX/nvm/nvm.sh" ] && . "$BREW_PREFIX/nvm/nvm.sh"
+[ -s "$BREW_PREFIX/nvm/etc/bash_completion.d/nvm" ] && . "$BREW_PREFIX/nvm/etc/bash_completion.d/nvm"
+
+# For developing android applications we can source android paths for the current shell
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # --------------------------------------------------------------------------------
 # ZSH Setup 

@@ -1,42 +1,39 @@
 return {
-    "nvim-treesitter/nvim-treesitter",
+	"nvim-treesitter/nvim-treesitter",
 	lazy = false,
-	branch = "master",
-    build = ":TSUpdate",
-    config = function()
-        local treesitter = require("nvim-treesitter.configs")
-        treesitter.setup({
-            highlight = {
-                enable = true,
-            },
-            indent = {
-                enable = true,
-            },
-            ensure_installed = {
-                "python",
-                "json",
-                "yaml",
-                "toml",
-                "javascript",
-                "typescript",
-                "tsx",
-                "html",
-                "css",
-                "markdown",
-                "svelte",
-                "bash",
-                "lua",
-                "dockerfile",
-                "sql",
-                "vim",
-                "gitignore",
-				"http",
-				"hlsplaylist",
-                "regex",
-                "nim",
-                "markdown",
-            },
-        })
-    end
-
+	branch = "main",
+	build = ":TSUpdate",
+    dependencies = {
+        'nvim-treesitter/nvim-treesitter-context',
+    },
+	config = function()
+        local treesitter = require("nvim-treesitter")
+        -- Directory to install parsers and queries to (prepended to `runtimepath` to have priority)
+		treesitter.setup({ install_dir = vim.fn.stdpath("data") .. "/site" })
+		treesitter.install({
+            "python",
+            "json",
+            "yaml",
+            "toml",
+            "javascript",
+            "typescript",
+            "tsx",
+            "html",
+            "css",
+            "markdown",
+            "svelte",
+            "bash",
+            "lua",
+            "dockerfile",
+            "sql",
+            "vim",
+            "gitignore",
+            "http",
+            "hlsplaylist",
+            "regex",
+            "nim",
+            "markdown",
+            "kotlin",
+		})
+	end,
 }

@@ -1,23 +1,23 @@
 return {
-	'mason-org/mason-lspconfig.nvim',
+	"mason-org/mason-lspconfig.nvim",
 	dependencies = {
 		{
 			"mason-org/mason.nvim",
 			opts = {},
 		},
-        "neovim/nvim-lspconfig",
+		"neovim/nvim-lspconfig",
 	},
-    lazy = false,
+	lazy = false,
 	opts = {
 		ensure_installed = {
 			-- Python
 			"basedpyright",
-            -- JS ecosytem
+			-- JS ecosytem
 			"html",
 			"ts_ls",
 			"lua_ls",
-            "svelte",
-            "cssls",
+			"svelte",
+			"cssls",
 			-- General
 			"dockerls",
 			-- TOML
@@ -29,9 +29,18 @@ return {
 			"vimls",
 			"yamlls",
 			"bashls",
-		}
+			-- JVM
+			"kotlin_lsp",
+		},
 	},
-    keys = {
-        {'grf', function () vim.lsp.buf.format() end, desc = 'format', mode = {'v'}}
-    }
+	keys = {
+		{
+			"grf",
+			function()
+				vim.lsp.buf.format()
+			end,
+			desc = "format",
+			mode = { "v" },
+		},
+	},
 }

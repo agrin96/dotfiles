@@ -51,9 +51,9 @@ end
 keymap.set("n", "grf", conform_formatting, { desc = "Format buffer" })
 
 vim.keymap.set("i", "\x1b[44~", function()
-    require("blink.cmp").select_next()
+	require("blink.cmp").select_next()
 end, { silent = true })
 
 vim.keymap.set("i", "\x1b[45~", function()
-    require("blink.cmp").select_prev()
+	require("blink.cmp").select_prev()
 end, { silent = true })

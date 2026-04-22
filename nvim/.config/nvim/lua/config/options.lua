@@ -32,6 +32,9 @@ vim.opt.backspace = "indent,eol,start"
 -- Use the system clipboard when using copy/paste
 vim.opt.clipboard:append("unnamedplus")
 
+-- Use nvim-treesitter for indent control
+vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
 -- Split window settings
 vim.opt.splitright = true
 vim.opt.splitbelow = true
