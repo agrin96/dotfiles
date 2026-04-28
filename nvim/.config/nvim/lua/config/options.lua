@@ -48,6 +48,7 @@ vim.opt.autoread = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.o.winborder = "double"
+vim.opt.winborder = "solid"
 
 -- Enable treesitter highlighting for files and treesitter based code folds.
 -- The `pcall` is necessary to silently fail for unsupported buffers.
@@ -68,3 +69,5 @@ for name, icon in pairs(symbols) do
 	vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
 end
 
+-- Make the inline diagnostic the default one
+vim.diagnostic.config({ virtual_lines = { current_line = true } })
