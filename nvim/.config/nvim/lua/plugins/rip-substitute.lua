@@ -3,11 +3,13 @@
 return {
 	"chrisgrieser/nvim-rip-substitute",
 	cmd = "RipSubstitute",
-    lazy = false,
+	lazy = false,
 	keys = {
 		{
 			"<leader>r",
-			function() require("rip-substitute").sub() end,
+			function()
+				require("rip-substitute").sub()
+			end,
 			mode = { "n", "x" },
 			desc = " rip substitute",
 		},
@@ -42,7 +44,7 @@ return {
 		},
 		incrementalPreview = {
 			matchHlGroup = "IncSearch",
-            rangeBackdropBrightness = 50,
+			rangeBackdropBrightness = 50,
 		},
 		regexOptions = {
 			startWithFixedStrings = false,
@@ -59,5 +61,5 @@ return {
 			icon = "",
 		},
 		debug = false, -- extra notifications for debugging
-	}
+	},
 }

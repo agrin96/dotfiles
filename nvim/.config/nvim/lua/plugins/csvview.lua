@@ -1,4 +1,4 @@
--- Allows nicely viewing csv/tsv with terminal 
+-- Allows nicely viewing csv/tsv with terminal
 -- https://github.com/hat0uma/csvview.nvim
 return {
 	"hat0uma/csvview.nvim",

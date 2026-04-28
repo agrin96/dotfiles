@@ -1,6 +1,7 @@
 require("config.options")
 require("config.keymaps")
 require("config.lazy")
+require("config.autocommands")
 
 -- Otherwise untracked files are barely visible
 vim.api.nvim_set_hl(0, "SnacksPickerGitStatusUntracked", {
@@ -29,11 +30,12 @@ local diag_colors = {
 	Hint = "#98c379",
 	Info = "#74ade9",
 }
+
 for level, color in pairs(diag_colors) do
-    local vl_name = "VirtualLine" .. (level == "Warn" and "Warning" or level)
+	local vl_name = "VirtualLine" .. (level == "Warn" and "Warning" or level)
 	vim.api.nvim_set_hl(0, "Diagnostic" .. level, { fg = color, italic = true })
 	vim.api.nvim_set_hl(0, "VirtualLine" .. vl_name, { fg = color, bg = nil })
-    vim.api.nvim_set_hl(0, "DiagnosticVirtualLines" .. level, { link = vl_name })
+	vim.api.nvim_set_hl(0, "DiagnosticVirtualLines" .. level, { link = vl_name })
 
 	-- Inline error reporting is really annoying because it highlights the text
 	-- making the view overwhelming visually. Remove the background here.
@@ -51,21 +53,6 @@ vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#70708f", bg = "#21262c" })
 vim.api.nvim_set_hl(0, "Pmenu", { fg = "#70708f", bg = "#21262c" })
 vim.api.nvim_set_hl(0, "PmenuSel", { fg = "black", bg = "#c2c9ff" })
 vim.opt.winborder = "solid"
-
--- Enable treesitter highlighting for files and treesitter based code folds.
--- The `pcall` is necessary to silently fail for unsupported buffers.
--- Starting foldlevel to 99 means essentially all code is unfolded at start.
-vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.o.foldmethod = "expr"
-vim.o.foldlevel = 99
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "*",
-	callback = function()
-        pcall(vim.treesitter.start)
-	end,
-})
-
 -- Enable the language servers we are using. These should match what we
 -- have in the lsp/ directory
 vim.lsp.enable({
@@ -81,34 +68,3 @@ vim.lsp.enable({
 	"kotlin_lsp",
 })
 
-vim.lsp.config.kotlin_lsp = {
-	filetypes = { "kotlin" },
-	cmd = { "kotlin-lsp", "--stdio" },
-	root_markers = {},
-	root_dir = function(bufnr, on_dir)
-		local fname = vim.api.nvim_buf_get_name(bufnr)
-
-		-- Direct ancestor settings.gradle (normal Gradle projects)
-		local found = vim.fs.find({
-			"settings.gradle",
-			"settings.gradle.kts",
-		}, {
-			path = fname,
-			upward = true,
-			type = "file",
-		})[1]
-		if found then
-			return on_dir(vim.fs.dirname(found))
-		end
-
-		-- Expo: walk up looking for a dir that has android/settings.gradle
-		local dir = vim.fs.dirname(fname)
-		while dir and dir ~= "/" do
-			local candidate = dir .. "/android/settings.gradle"
-			if vim.uv.fs_stat(candidate) then
-				return on_dir(dir .. "/android")
-			end
-			dir = vim.fs.dirname(dir)
-		end
-	end,
-}

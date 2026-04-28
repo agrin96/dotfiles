@@ -3,29 +3,6 @@
 -- startup.
 return {
     {
-        "lancewilhelm/horizon-extended.nvim",
-        lazy = true,
-        opts = {
-            style = "beam"
-        },
-        config = function()
-            vim.api.nvim_create_autocmd('ColorScheme', {
-                group = vim.api.nvim_create_augroup('custom_highlights_horizon', {}),
-                pattern = 'horizon-extended',
-                callback = function()
-                    vim.api.nvim_set_hl(0, '@lsp.type.variable', {
-                        fg = '#bfbdb8',
-                        italic = true,
-                    })
-                    vim.api.nvim_set_hl(0, 'normal', {
-                        fg = '#d3d5de',
-                        bg = '#1d1f27'
-                    })
-                end
-            })
-        end
-    },
-    {
         "tiagovla/tokyodark.nvim",
         lazy = true,
         opts = {},
@@ -33,22 +10,6 @@ return {
             local colors = require("tokyodark.palette")
             colors.bg0 = "#22252A"
         end
-    },
-    {
-        "shawilly/ponokai",
-        lazy = true,
-        config = function()
-            vim.g.ponokai_style = "default"
-            vim.g.ponokai_enable_italic = true
-            vim.g.ponokai_colors_override = {
-                -- bg0 = {"#22252A", 235 },
-                bg0 = { "#20201e", 235 },
-            }
-        end
-    },
-    {
-        "lunacookies/vim-colors-xcode",
-        lazy = true,
     },
     {
         "sainnhe/sonokai",
@@ -192,20 +153,6 @@ return {
         end
     },
     {
-        "sainnhe/edge",
-        lazy = true,
-        config = function()
-            vim.g.edge_style = "default"
-            vim.g.edge_dim_foreground = 0
-            vim.g.edge_disable_italic_comment = 0
-            vim.g.edge_enable_italic = 1
-            vim.g.edge_float_style = "dim"
-            vim.g.edge_colors_override = {
-                bg0 = { "#212429", 234 },
-            }
-        end
-    },
-    {
         'AlexvZyl/nordic.nvim',
         lazy = true,
         config = function()
@@ -224,11 +171,6 @@ return {
         lazy = true,
     },
     {
-        -- Includes 5 themes, material, material-deep-ocean, material-darker, material-palenight, material-lighter
-        "marko-cerovac/material.nvim",
-        lazy = true,
-    },
-    {
         -- Includes dracula and dracula-soft (which looks like ponokai)
         "Mofiqul/dracula.nvim",
         lazy = true,
@@ -236,11 +178,6 @@ return {
     {
         -- Includes vaporwave, onedark, onelight, onedark_vivid, onedark_dark
         "olimorris/onedarkpro.nvim",
-        lazy = true,
-    },
-    {
-        -- Includes vulgaris (default), multiplex, lighter
-        "ribru17/bamboo.nvim",
         lazy = true,
     },
     {
@@ -254,59 +191,6 @@ return {
                         bg = "#212429",
                     },
                 },
-            })
-        end
-    },
-    {
-        -- One dark theme only
-        "dgox16/oldworld.nvim",
-        lazy = true,
-    },
-    {
-        "thesimonho/kanagawa-paper.nvim",
-        lazy = true,
-        config = function()
-            require('kanagawa-paper').setup({
-                color_offset = {
-                    ink = {
-                        brightness = 0.9,
-                        saturation = 0
-                    }
-                }
-            })
-        end
-    },
-    {
-        -- Includes oh-lucy, oh-lucy-evening,
-        "Yazeed1s/oh-lucy.nvim",
-        lazy = true,
-    },
-    {
-        -- Include light and dark sweetie
-        "NTBBloodbath/sweetie.nvim",
-        lazy = true,
-    },
-    {
-        -- Includes mellow only
-        "mellow-theme/mellow.nvim",
-        lazy = true,
-    },
-    {
-        -- Includes one_monokai only. Top contender
-        "cpea2506/one_monokai.nvim",
-        lazy = true,
-        config = function()
-            require('one_monokai').setup({
-                colors = {
-                    bg = '#212429',
-                    aqua = '#5192c8'
-                },
-                highlights = function(colors)
-                    return {
-                        Keyword = { link = '@keyword.function' },
-                        ['@lsp.type.namespace.python'] = { link = 'Type' }
-                    }
-                end
             })
         end
     },
@@ -326,13 +210,5 @@ return {
                 end
             })
         end
-    },
-    {
-        "alexmozaidze/palenight.nvim",
-        lazy = true,
-        -- init = function()
-        -- 	local groups = r:wequire "palenight/groups"
-        -- 	groups["Normal"].bg = "#212429"
-        -- end
     }
 }

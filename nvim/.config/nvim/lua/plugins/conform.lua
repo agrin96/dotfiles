@@ -25,12 +25,12 @@ return {
 					-- "--tab-width=4",
 				},
 			},
-            -- ruff_format = {
-            --     append_args = {
-            --         "--line-length", "88",
-            --         "--config", "format.quote-style='single'",
-            --     }
-            -- }
+			-- ruff_format = {
+			--     append_args = {
+			--         "--line-length", "88",
+			--         "--config", "format.quote-style='single'",
+			--     }
+			-- }
 		},
 	},
 }

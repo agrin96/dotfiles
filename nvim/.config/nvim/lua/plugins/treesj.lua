@@ -3,13 +3,25 @@
 -- Additional language rules can be configured, but I don't need it.
 -- https://github.com/Wansmer/treesj
 return {
-	'Wansmer/treesj',
-    lazy = false,
+	"Wansmer/treesj",
+	lazy = false,
 	keys = {
-		{ 'gj', function ()	require('treesj').join() end, desc = "Activate Join" },
-		{ 'gs', function ()	require('treesj').split() end, desc = "Activate Split" }
+		{
+			"gj",
+			function()
+				require("treesj").join()
+			end,
+			desc = "Activate Join",
+		},
+		{
+			"gs",
+			function()
+				require("treesj").split()
+			end,
+			desc = "Activate Split",
+		},
 	},
-	dependencies = { 'nvim-treesitter/nvim-treesitter' }, -- if you install parsers with `nvim-treesitter`
+	dependencies = { "nvim-treesitter/nvim-treesitter" }, -- if you install parsers with `nvim-treesitter`
 	opts = {
 		-- Generally this is wrong, but for working with json and stuff
 		max_join_length = 1000,

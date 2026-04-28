@@ -1,15 +1,15 @@
 -- This plugin allows us to move the cursor through neovim panes and wezterm panes with
 -- one set of keys
 return {
-  "mrjones2014/smart-splits.nvim",
-  lazy = false,
-  config = function()
-    require("smart-splits").setup({ at_edge = "stop" })
+	"mrjones2014/smart-splits.nvim",
+	lazy = false,
+	config = function()
+		require("smart-splits").setup({ at_edge = "stop" })
 
-    vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left)
-    vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down)
-    vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up)
-    vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right)
-    vim.keymap.set("n", "<C-\\>", require("smart-splits").move_cursor_previous)
-  end,
+		vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left)
+		vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down)
+		vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up)
+		vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right)
+		vim.keymap.set("n", "<C-\\>", require("smart-splits").move_cursor_previous)
+	end,
 }

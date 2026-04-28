@@ -2,7 +2,7 @@
 return {
 	"lukas-reineke/virt-column.nvim",
 	opts = {
-		char = '┊',
-		virtcolumn = '88',
-	}
+		char = "┊",
+		virtcolumn = "88",
+	},
 }
