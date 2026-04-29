@@ -38,9 +38,8 @@ return {
 					local sonokai_hl = vim.fn["sonokai#highlight"]
 					local hl = vim.api.nvim_set_hl
 
-					local fg_var = "#CCCCCC"
+					local fg_var = "#e3e2d9"
 					local fg_const = "#979ED2"
-					local fg_ts_var = "#e3e2d9"
 
 					sonokai_hl("Function", palette.purple, palette.none)
 					sonokai_hl("Number", palette.blue, palette.none)
@@ -56,11 +55,11 @@ return {
 					hl(0, "@lsp.type.selfParameter.python", { link = "@lsp.type.variable.python" })
 
 					-- TypeScript/React: direct highlights
-					hl(0, "@lsp.type.variable.typescript", { fg = fg_ts_var })
-					hl(0, "@lsp.type.variable.typescriptreact", { fg = fg_ts_var })
-					hl(0, "@variable.member.tsx", { fg = fg_ts_var })
-					hl(0, "@tag.attribute.tsx", { fg = fg_ts_var })
-					hl(0, "@variable.tsx", { fg = fg_ts_var })
+					hl(0, "@lsp.type.variable.typescript", { fg = fg_var })
+					hl(0, "@lsp.type.variable.typescriptreact", { fg = fg_var })
+					hl(0, "@variable.member.tsx", { fg = fg_var })
+					hl(0, "@tag.attribute.tsx", { fg = fg_var })
+					hl(0, "@variable.tsx", { fg = fg_var })
 
 					-- All link-based overrides
 					local links = {
