@@ -3,9 +3,6 @@ return {
 	lazy = false,
 	branch = "main",
 	build = ":TSUpdate",
-	dependencies = {
-		"nvim-treesitter/nvim-treesitter-context",
-	},
 	config = function()
 		local treesitter = require("nvim-treesitter")
 		-- Directory to install parsers and queries to (prepended to `runtimepath` to have priority)
