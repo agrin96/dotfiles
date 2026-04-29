@@ -207,3 +207,8 @@ chpwd() {
     # Matches our ls alias since you cant run an alias as a function.
     command lsd --date relative
 }
+
+# Allows local overrides for zshrc.
+if [[ -f "$HOME/.zshrc.local" ]]; then
+    source "$HOME/.zshrc.local"
+fi

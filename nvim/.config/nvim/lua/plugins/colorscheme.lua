@@ -67,6 +67,7 @@ return {
 						["@lsp.type.function.python"] = "Purple",
 						["@lsp.type.method.python"] = "Purple",
 						["@lsp.type.decorator.python"] = "Purple",
+						["@function.method.call.python"] = "Purple",
 						["@lsp.type.enum.python"] = "Yellow",
 						["@lsp.type.class.python"] = "Yellow",
 						["@lsp.typemod.class.builtin.python"] = "Yellow",

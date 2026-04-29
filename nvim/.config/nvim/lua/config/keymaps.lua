@@ -46,7 +46,7 @@ keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Leave terminal mode" })
 
 -- Buffer format
 local conform_formatting = function()
-	require("conform").format()
+	require("conform").format({ lsp_format = "fallback" })
 end
 keymap.set("n", "grf", conform_formatting, { desc = "Format buffer" })
 

@@ -12,6 +12,7 @@ return {
 			scss = { "prettier" },
 			markdown = { "prettier" },
 			toml = { "prettier" },
+            json = { "prettier" },
 			-- python = {
 			-- 	"ruff_format",
 			-- 	"ruff_organize_imports",
