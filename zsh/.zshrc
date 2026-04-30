@@ -54,20 +54,24 @@ export FZF_LSD_IGNORES="--ignore-glob '.venv'\
  --ignore-glob '.pytest_cache'"
 export FZF_LSD_PREVIEW="lsd --color always --icon always --tree $FZF_LSD_IGNORES"
 
-# FZF should by default look only for directories and skip .git node etc.
-# NOTE: If the options are not exactly 1 space apart this whole thing blows up.
-# It also doesn't like being multilined.
- export FZF_DEFAULT_EXCLUDE="! -path '*.git*'\
- ! -path '*node_modules*'\
- ! -path '*.venv*'\
- ! -path '*__pycache__*'\
- ! -path '*.pyc*'\
- ! -path '*.cpython*'\
- ! -path '*.vscode*'\
- ! -path '*.pytest_cache*'"
+export FZF_LIST_DIRECTORIES="fd --type d --hidden --exclude .git"
+export FZF_LIST_FILES="fd --type f --hidden --exclude .git"
 
-export FZF_LIST_DIRECTORIES="find . -type d $FZF_DEFAULT_EXCLUDE"
-export FZF_LIST_FILES="find . -type f $FZF_DEFAULT_EXCLUDE"
+export FZF_CTRL_T_COMMAND=$FZF_LIST_FILES
+export FZF_CTRL_T_OPTS="--preview 'bat -n -r :100 --color=always {}'"
+
+# The filetree is much flatter so we can do preview 30%
+export FZF_ALT_C_COMMAND=$FZF_LIST_DIRECTORIES
+export FZF_ALT_C_OPTS="
+ --preview '$FZF_LSD_PREVIEW -d {}'
+ --preview-window 'right,30%'"
+
+# Arguments for searching in history
+export FZF_CTRL_R_OPTS="
+ --prompt 'command >'
+ --preview ''
+ --color header:italic"
+
 # This Env var what is actually read by fzf
 export FZF_DEFAULT_COMMAND=$FZF_LIST_DIRECTORIES
 
@@ -76,12 +80,11 @@ export FZF_DEFAULT_COMMAND=$FZF_LIST_DIRECTORIES
 # is the case for a lot of our FZF options
 export FZF_DEFAULT_OPTS="
  --style full
- --prompt 'directories > '
  --pointer '○'
  --marker '⏺'
  --height 100%
  --preview \"$FZF_LSD_PREVIEW -d {}\"
- --preview-window 'top,70%'
+ --preview-window 'right,50%'
  --layout reverse-list
  --info inline
  --multi
@@ -91,53 +94,28 @@ export FZF_DEFAULT_OPTS="
     else \
         echo \" \$FZF_MATCH_COUNT matches for [\$FZF_QUERY] \"; \
     fi'
- --bind 'del:execute(rm -ri {+})'
- --bind \"del:+reload($FZF_LIST_DIRECTORIES)\"
  --bind 'ctrl-p:toggle-preview'
- --bind 'ctrl-/:change-preview-window(down|hidden|)'
- --bind 'ctrl-d:change-prompt(directories > )'
- --bind \"ctrl-d:+reload($FZF_LIST_DIRECTORIES)\"
- --bind 'ctrl-d:+change-preview($FZF_LSD_PREVIEW -d {})'
- --bind 'ctrl-d:+refresh-preview'
- --bind \"ctrl-s:+change-preview($FZF_LSD_PREVIEW {})\"
- --bind 'ctrl-f:change-prompt(files > )'
- --bind \"ctrl-f:+reload($FZF_LIST_FILES)\"
- --bind 'ctrl-f:+refresh-preview'
- --bind 'ctrl-f:+change-preview(bat -n -r :100 --color=always {})'
- --bind \"ctrl-r:reload($FZF_LIST_DIRECTORIES)\"
  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)'
- --color header:italic
- --color 'preview-border:#9999cc,preview-label:#ccccff'
- --color 'list-border:#669966,list-label:#99cc99'
- --color 'input-border:#996666,input-label:#ffcccc'
- --color 'header-border:#6699cc,header-label:#99ccff'
- --header 'CTRL+D directories | CTRL+F files | CTRL+R reload
-CTRL+/ move preview window | CTRL+Y copy | DEL delete
-CTRL-S directories & files | CTRL+P toggle preview'"
+ --color bg:#1c2025,fg:#e3e2d9,hl:#61a670
+ --color pointer:#654C78,bg+:#654C78,info:#7CAAD9
+ --color gutter:#1c2025
+ --color header:italic"
 
-# Arguments for searching in history
-export FZF_CTRL_R_OPTS="
- --prompt 'command >'
- --preview ''
- --color header:italic
- --header 'CTRL+R reload | CTRL+Y copy to clipboard'"
 
 # --------------------------------------------------------------------------------
 # Functions
 # --------------------------------------------------------------------------------
 # Our fzf wrapper that allows cd and opening files in editor
 function ff(){
-	local selection=$(fzf -i)
-	if [ -z "$selection" ]; then
-		return 0
-	fi
+    local selection=$(fzf -i)
+    [[ -z "$selection" ]] && return 0
 
 	# If this is a directory then just CD if this is a file then open it in our
 	# default editor.
-	if [ -d "$selection" ]; then
-		cd "$selection" || return 1
+	if [[ -d "$selection" ]]; then
+		cd "$selection"
 	else
-		eval "$EDITOR $selection"
+		"$EDITOR" "$selection"
 	fi
 }
 
@@ -156,13 +134,10 @@ help() {
     print "  <C-xu>      undo command-line edit"
     print ""
     print -P "%B%F{green}FZF%f%b"
-    print "  <C-d> directories"  
-    print "  <C-f> files" 
-    print "  <C-r> reload"
+    print "  <ALT-c> directories"  
+    print "  <C-t> files" 
     print "  <C-p> toggle preview"
-    print "  <C-/> move preview"
     print "  <C-y> copy"
-    print "  <Del> delete"
     print ""
     print -P "%B%F{green}Other%f%b"
     print "  venv            activate python .venv"
