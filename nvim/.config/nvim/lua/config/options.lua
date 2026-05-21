@@ -14,7 +14,7 @@ vim.opt.breakindent = true
 local tab_width = 4
 vim.opt.tabstop = tab_width -- Size of a tab in spaces
 vim.opt.shiftwidth = tab_width -- Spaces per indentation level
-vim.opt.smartindent = true -- Syntax aware indentations for new lines
+vim.opt.smartindent = false -- We set this to false because we use treesitter
 vim.opt.expandtab = true -- Whether to expand a tab to spaces
 
 vim.opt.autoindent = true
@@ -56,8 +56,6 @@ vim.opt.winborder = "solid"
 vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.foldmethod = "expr"
 vim.o.foldlevel = 99
--- Use nvim-treesitter for indent control
-vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
 -- Make it so that semantic highlighting has priority over treesitter
 vim.highlight.priorities.semantic_tokens = 101

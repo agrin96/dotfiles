@@ -58,6 +58,22 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- Activate treesitter indent on python
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "python",
+	callback = function()
+		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	end,
+})
+
+-- Turn on wrapping for markdown files.
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		vim.opt_local.wrap = true
+	end,
+})
+
 -- Override highlights on ColorScheme change
 vim.api.nvim_create_autocmd("ColorScheme", {
 	callback = function()
