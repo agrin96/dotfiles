@@ -157,8 +157,8 @@ export PATH="$HOME/.nimble/bin:$PATH"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$BREW_PREFIX/nvm/nvm.sh" ] && . "$BREW_PREFIX/nvm/nvm.sh"
-[ -s "$BREW_PREFIX/nvm/etc/bash_completion.d/nvm" ] && . "$BREW_PREFIX/nvm/etc/bash_completion.d/nvm"
+[ -s "$BREW_PREFIX/opt/nvm/nvm.sh" ] && . "$BREW_PREFIX/opt/nvm/nvm.sh"
+[ -s "$BREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && . "$BREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"
 
 # For developing android applications we can source android paths for the current shell
 export ANDROID_HOME=$HOME/Library/Android/sdk
