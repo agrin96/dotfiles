@@ -6,14 +6,16 @@ brew "fd"
 brew "fzf"
 brew "htop"
 brew "lsd"
+brew "luarocks"
 brew "mtr"
-brew "neofetch"
 brew "neovim"
 brew "ripgrep"
 brew "starship"
 brew "tree"
+brew "tree-sitter-cli"
 brew "watchman"
 
 cask "font-hack-nerd-font"
 cask "font-maple-mono-nf"
-cask "wezterm@nightly"
+# The WezTerm cask is macOS only. On Linux bootstrap.sh installs it from the WezTerm apt repository.
+cask "wezterm@nightly" if OS.mac?

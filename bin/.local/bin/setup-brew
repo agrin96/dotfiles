@@ -3,8 +3,9 @@ set -euo pipefail
 
 BREW_DIR="${BREW_DIR:-$HOME/.config/brew}"
 
+# -L follows symlinks: stow can link the whole brew directory or each Brewfile.
 list_profiles() {
-    find "$BREW_DIR" -maxdepth 1 -type f -name 'Brewfile.*' -exec basename {} \; \
+    find -L "$BREW_DIR" -maxdepth 1 -type f -name 'Brewfile.*' -exec basename {} \; \
         | sed 's/^Brewfile\.//' \
         | sort
 }
@@ -38,15 +39,21 @@ if [[ $# -eq 0 ]]; then
     exit 1
 fi
 
-if [[ "$1" == "--list" ]]; then
+if [[ "$1" == "--list" || "$1" == "-l" ]]; then
     list_profiles
     exit 0
 fi
 
-if [[ "$1" == "--list" || "$1" == "-l" ]]; then
+if [[ "$1" == "all" ]]; then
+    profiles=$(list_profiles)
+    if [[ -z "$profiles" ]]; then
+        echo "Error: no Brewfile.* profiles found in $BREW_DIR" >&2
+        exit 1
+    fi
+
     while IFS= read -r profile; do
         install_profile "$profile"
-    done < <(list_profiles)
+    done <<< "$profiles"
     exit 0
 fi
 

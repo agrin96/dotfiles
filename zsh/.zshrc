@@ -1,3 +1,7 @@
+# Homebrew on Linux does not add itself to PATH
+if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 BREW_PREFIX=$(brew --prefix)
 # --------------------------------------------------------------------------------
 # Plugins

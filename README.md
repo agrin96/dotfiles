@@ -20,19 +20,26 @@ some things are ignored such as the vscode/ directory which has vscode profiles.
 
 ## Requirements
 
-Install these basics first:
+### macOS
 
+Install these items first:
+
+- Xcode command line tools: `xcode-select --install`
 - `git`
-- `stow`
 - `homebrew`
 
-On macOS, you also need to install Xcode command line tools:
+### Ubuntu
 
-```bash
-xcode-select --install
-```
+Install `git` first: `sudo apt install git`. The bootstrap script installs all other items. It uses `sudo`, so it asks for your password.
 
-### Usage
+On Ubuntu, the bootstrap script also does these steps:
+
+- It installs the apt packages that Homebrew needs, then Homebrew itself.
+- It sets zsh as your default shell.
+- If a desktop session is open, it installs WezTerm nightly from the WezTerm apt repository. On a server, it skips WezTerm.
+
+## Usage
+
 ```bash
 git clone git@github.com:agrin96/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
@@ -40,7 +47,4 @@ cd ~/.dotfiles
 ./bootstrap.sh
 ```
 
-The bootstrap script will set up stow packages and install a common brew profile. If you
-need to install additional brew profiles run `brew-setup.sh --list` and then install with
-`brew-setup.sh <profile>`
-
+The bootstrap script stows the packages and installs the `common` brew profile. To see the other profiles, run `setup-brew --list`. To install a profile, run `setup-brew <profile>`.
