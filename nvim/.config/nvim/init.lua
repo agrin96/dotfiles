@@ -3,18 +3,6 @@ require("config.keymaps")
 require("config.autocommands")
 require("config.lazy")
 
--- Enable the language servers we are using. These should match what we
--- have in the lsp/ directory
-vim.lsp.enable({
-	"basedpyright",
-	"lua_ls",
-	"dockerls",
-	"sqruff",
-	"json-lsp",
-	"nim_langserver",
-	"ts_ls",
-	"html",
-	"css",
-	"kotlin_lsp",
-})
-
+-- mason-lspconfig enables every server Mason installs. Enable the ones
+-- installed outside Mason here.
+vim.lsp.enable({ "nim_langserver" })

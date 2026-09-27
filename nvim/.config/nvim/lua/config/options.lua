@@ -47,7 +47,6 @@ vim.opt.autoread = true
 -- Split window settings
 vim.opt.splitright = true
 vim.opt.splitbelow = true
-vim.o.winborder = "double"
 vim.opt.winborder = "solid"
 
 -- Enable treesitter highlighting for files and treesitter based code folds.
@@ -60,12 +59,12 @@ vim.o.foldlevel = 99
 -- Make it so that semantic highlighting has priority over treesitter
 vim.highlight.priorities.semantic_tokens = 101
 
--- Create highlight groups and select appropriate icons for our diagnostics
+-- Select appropriate icons for our diagnostics
 local symbols = { Error = "", Info = "", Hint = "󰌶", Warn = "" }
+local sign_text = {}
 for name, icon in pairs(symbols) do
-	local hl = "DiagnosticSign" .. name
-	vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
+	sign_text[vim.diagnostic.severity[name:upper()]] = icon
 end
 
 -- Make the inline diagnostic the default one
-vim.diagnostic.config({ virtual_lines = { current_line = true } })
+vim.diagnostic.config({ virtual_lines = { current_line = true }, signs = { text = sign_text } })

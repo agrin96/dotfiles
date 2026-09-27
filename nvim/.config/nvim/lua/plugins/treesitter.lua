@@ -26,7 +26,6 @@ return {
 			"vim",
 			"gitignore",
 			"http",
-			"hlsplaylist",
 			"regex",
 			"nim",
 			"markdown",

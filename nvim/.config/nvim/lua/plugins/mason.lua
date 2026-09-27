@@ -33,14 +33,4 @@ return {
 			"kotlin_lsp",
 		},
 	},
-	keys = {
-		{
-			"grf",
-			function()
-				vim.lsp.buf.format()
-			end,
-			desc = "format",
-			mode = { "v" },
-		},
-	},
 }

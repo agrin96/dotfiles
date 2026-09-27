@@ -1,7 +1,6 @@
 -- For Expo react native, allows us to discover native modules.
 return {
 	filetypes = { "kotlin" },
-	cmd = { "kotlin-lsp", "--stdio" },
 	root_markers = {},
 	root_dir = function(bufnr, on_dir)
 		local fname = vim.api.nvim_buf_get_name(bufnr)
