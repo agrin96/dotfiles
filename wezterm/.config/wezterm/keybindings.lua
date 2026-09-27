@@ -188,6 +188,20 @@ function exports.apply(config)
             mods = "CMD",
             action = wezterm.action.SendKey({ key = "p", mods = "CTRL" }),
         },
+        -- Terminals send Shift+Enter as a plain Enter. When Neovim runs in the pane
+        -- (smart-splits sets the IS_NVIM user var), send the CSI-u code Neovim reads as <S-CR>.
+        {
+            key = "Enter",
+            mods = "SHIFT",
+            action = wezterm.action_callback(function(window, pane)
+                if pane:get_user_vars().IS_NVIM == "true" then
+                    window:perform_action(wezterm.action.SendString("\x1b[13;2u"), pane)
+                else
+                    -- Pass Shift+Enter through unchanged, e.g. for Claude Code's newline
+                    window:perform_action(wezterm.action.SendKey({ key = "Enter", mods = "SHIFT" }), pane)
+                end
+            end),
+        },
         -- Sessions
         {
             key = 's',

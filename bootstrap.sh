@@ -66,7 +66,14 @@ cd "$DOTFILES_DIR"
 for pkg in "${PACKAGES[@]}"; do
     if [[ -d "$pkg" ]]; then
         log "Stowing $pkg"
-        stow "$pkg"
+        # bin: link each script into a real ~/.local/bin, so tools that install
+        # there (uv, pipx) do not write into this repo. --restow also unfolds a
+        # ~/.local/bin link left by an older bootstrap.
+        if [[ "$pkg" == "bin" ]]; then
+            stow --restow --no-folding "$pkg"
+        else
+            stow "$pkg"
+        fi
     fi
 done
 

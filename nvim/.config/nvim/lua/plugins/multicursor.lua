@@ -17,6 +17,10 @@ return {
         set({"n", "x"}, "<leader>s", function() mc.matchSkipCursor(1) end, { desc = "Skip new cursor by selection"})
         set({"n", "x"}, "<leader>N", function() mc.matchAddCursor(-1) end, { desc = "Add new cursor before by selection"})
         set({"n", "x"}, "<leader>S", function() mc.matchSkipCursor(-1) end, { desc = "Skip new cursor before by selection"})
+
+        -- Add a cursor to every match of the word/selection, or of the last search.
+        set({"n", "x"}, "<leader>A", mc.matchAllAddCursors, { desc = "Add cursors to all matches"})
+        set("n", "<leader>/A", mc.searchAllAddCursors, { desc = "Add cursors to all search results"})
         -- Add and remove cursors with control + left click.
         set("n", "<c-leftmouse>", mc.handleMouse)
         set("n", "<c-leftdrag>", mc.handleMouseDrag)

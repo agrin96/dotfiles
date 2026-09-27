@@ -26,4 +26,35 @@ return {
 		},
 		"lunarmodules/lua-mimetypes",
 	},
+	-- Only in .http buffers. <S-CR> needs the WezTerm Shift+Enter binding.
+	keys = {
+		{ "<CR>", "<cmd>Rest run<CR>", ft = "http", desc = "Run request under cursor" },
+		{
+			"<S-CR>",
+			function()
+				-- Plain `:Rest last` fails with "request failed": it waits on the request outside an async task.
+				-- Do the same steps as `:Rest last` (check, clear, open the pane, keep focus here), then run it inside one.
+				local request = require("rest-nvim.request")
+				if not request.last_request() then
+					vim.notify("No last request found", vim.log.levels.WARN, { title = "rest.nvim" })
+					return
+				end
+				local result = require("rest-nvim.ui.result")
+				result.clear()
+				if not result.is_open() then
+					vim.cmd.wincmd("v")
+					result.enter(vim.api.nvim_get_current_win())
+					vim.cmd.wincmd("p")
+				end
+				require("nio").run(request.run_last)
+			end,
+			ft = "http",
+			desc = "Run last request",
+		},
+		{ "<leader>hr", "<cmd>Rest run<CR>", ft = "http", desc = "Run request under cursor" },
+		{ "<leader>ho", "<cmd>Rest open<CR>", ft = "http", desc = "Open result pane" },
+		{ "<leader>he", "<cmd>Rest env select<CR>", ft = "http", desc = "Select env file" },
+		{ "<leader>hc", "<cmd>Rest curl yank<CR>", ft = "http", desc = "Copy request as curl" },
+		{ "<leader>hL", "<cmd>Rest logs<CR>", ft = "http", desc = "Open logs" },
+	},
 }

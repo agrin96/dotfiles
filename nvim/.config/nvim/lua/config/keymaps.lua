@@ -1,5 +1,5 @@
 local keymap = vim.keymap
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 keymap.set("n", "U", "<C-R>", { desc = "Redo last change" })
 keymap.set({ "n", "v" }, "$", "$h")
 

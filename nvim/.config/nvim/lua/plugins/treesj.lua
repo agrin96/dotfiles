@@ -23,6 +23,8 @@ return {
 	},
 	dependencies = { "nvim-treesitter/nvim-treesitter" }, -- if you install parsers with `nvim-treesitter`
 	opts = {
+		-- Its default <leader>j/m/s duplicate gj/gs and clash with multicursor's <leader>s
+		use_default_keymaps = false,
 		-- Generally this is wrong, but for working with json and stuff
 		max_join_length = 1000,
 	},
